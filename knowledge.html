@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проверка знаний — Портал безопасности</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script src="js/knowledge.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo text-white text-decoration-none">
+        <span class="logo-circle">
+          <img src="assets/img/логотип.png" alt="Логотип" class="logo-img">
+        </span>
+        <span class="logo-text fw-bold">Фишинг</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="main-nav">
+        <a href="section-1.html" class="nav-link nav-link-hover fw-semibold text-white rounded-2">Угрозы</a>
+        <a href="section-2.html" class="nav-link nav-link-hover fw-semibold text-white rounded-2">Признаки</a>
+        <a href="section-3.html" class="nav-link nav-link-hover fw-semibold text-white rounded-2">Действия</a>
+        <a href="checklist.html" class="nav-link nav-link-hover fw-semibold text-white rounded-2">Чек-лист</a>
+        <a href="registry.html" class="nav-link nav-link-hover fw-semibold text-white rounded-2">Каталог</a>
+        <a href="knowledge.html" class="nav-link nav-link-hover fw-semibold text-white rounded-2 active">Проверка знаний</a>
+        <button class="theme-toggle theme-toggle-hover rounded-2" aria-label="Переключить тему">🌙</button>
+      </nav>
+    </div>
+    <span class="indicator"></span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="display-5 fw-bold mb-3 text-white">Проверка знаний</h1>
+      <p class="lead mb-0 text-white">Ответьте на вопросы по теме «Фишинг и социальная инженерия» и узнайте свой уровень.</p>
+    </div>
+  </section>
+
+  <div class="page">
+
+    <aside class="page__aside">
+      <nav class="side-nav bg-white rounded-3 shadow-sm border border-light p-4">
+        <h3 class="side-nav__title fs-6 fw-bold text-primary mb-3">Навигация по разделам</h3>
+        <ul class="side-nav__list">
+          <li class="side-nav__item">
+            <a href="section-1.html" class="side-nav__link">Раздел 1. Угрозы</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="section-2.html" class="side-nav__link">Раздел 2. Признаки</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="section-3.html" class="side-nav__link">Раздел 3. Действия</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="checklist.html" class="side-nav__link">Чек-лист</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="registry.html" class="side-nav__link">Каталог</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="knowledge.html" class="side-nav__link active">Проверка знаний</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="page__main">
+
+      <ol class="breadcrumbs py-2 px-3 mb-4 rounded-pill shadow-sm">
+        <li><a href="index.html">Главная</a></li>
+        <li>Проверка знаний</li>
+      </ol>
+
+      <h2 class="fs-3 fw-bold text-primary mb-3">Форма регистрации</h2>
+      <p class="mb-4 lh-base text-body">Заполните форму для прохождения теста по теме «Фишинг и социальная инженерия».</p>
+
+      <div class="knowledge-form-card bg-white rounded-3 shadow-sm border border-light p-4 mb-4">
+        <form id="knowledge-form" novalidate>
+
+  <div class="row g-3">
+
+    <!-- Фамилия и имя -->
+    <div class="col-12 col-md-6">
+      <label for="student-name" class="form-label fw-semibold">
+        Фамилия и имя обучающегося <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             id="student-name"
+             name="studentName"
+             class="form-control"
+             placeholder="Например: Иванов Иван"
+             aria-describedby="error-student-name"
+             required>
+      <div class="invalid-feedback" id="error-student-name">
+        Введите фамилию и имя (мин. 2 символа, только буквы).
+      </div>
+    </div>
+
+    <!-- Учебная группа -->
+    <div class="col-12 col-md-6">
+      <label for="student-group" class="form-label fw-semibold">
+        Учебная группа <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             id="student-group"
+             name="studentGroup"
+             class="form-control"
+             placeholder="Например: ПО-31"
+             aria-describedby="error-student-group"
+             required>
+      <div class="invalid-feedback" id="error-student-group">
+        Укажите учебную группу.
+      </div>
+    </div>
+
+    <!-- Дата проверки -->
+    <div class="col-12 col-md-6">
+      <label for="check-date" class="form-label fw-semibold">
+        Дата проверки <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             id="check-date"
+             name="checkDate"
+             class="form-control"
+             placeholder="Выберите дату..."
+             aria-describedby="error-check-date"
+             readonly
+             required>
+      <div class="invalid-feedback" id="error-check-date">
+        Выберите дату проверки.
+      </div>
+    </div>
+
+    <!-- Номер проверки -->
+    <div class="col-12 col-md-6">
+      <label for="check-number" class="form-label fw-semibold">
+        Номер проверки <span class="text-danger">*</span>
+      </label>
+      <input type="number"
+             id="check-number"
+             name="checkNumber"
+             class="form-control"
+             placeholder="Например: 1"
+             min="1" max="10"
+             aria-describedby="error-check-number"
+             required>
+      <div class="invalid-feedback" id="error-check-number">
+        Введите число от 1 до 10.
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="col-12">
+      <label for="student-email" class="form-label fw-semibold">
+        Электронная почта для уведомления <span class="text-danger">*</span>
+      </label>
+      <input type="email"
+             id="student-email"
+             name="studentEmail"
+             class="form-control"
+             placeholder="example@domain.by"
+             aria-describedby="error-student-email"
+             required>
+      <div class="invalid-feedback" id="error-student-email">
+        Введите корректный адрес электронной почты.
+      </div>
+    </div>
+
+    <!-- Слайдер самооценки -->
+    <div class="col-12">
+      <label for="self-assessment-slider" class="form-label fw-semibold">
+        Ваша самооценка уровня подготовки:
+        <span id="slider-value" class="text-primary fw-bold">5</span> / 10
+      </label>
+      <div id="self-assessment-slider"></div>
+    </div>
+
+    <!-- Кнопка -->
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary btn-hover rounded-3 px-4 py-2 fw-semibold">
+        Начать проверку знаний
+      </button>
+    </div>
+
+  </div>
+
+</form>
+      </div>
+
+      <h2 class="fs-3 fw-bold text-primary mt-5 mb-3">Вопросы для проверки знаний</h2>
+<p class="mb-4 lh-base text-body">Ответьте на вопросы по разделам темы.</p>
+
+<div class="knowledge-form-card bg-white rounded-3 shadow-sm border border-light p-4 mb-4">
+
+  <div class="accordion" id="questionsAccordion">
+
+    <!-- РАЗДЕЛ 1 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button fw-semibold text-primary" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+          Раздел 1. Угрозы
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show"
+           aria-labelledby="headingOne" data-bs-parent="#questionsAccordion">
+        <div class="accordion-body">
+
+          <div class="quiz-question mb-3">
+            <p class="fw-bold mb-2">1. Что такое фишинг?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" value="a" id="q1-a">
+              <label class="form-check-label" for="q1-a">Взлом сервера</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" value="b" id="q1-b">
+              <label class="form-check-label" for="q1-b">Обман для получения конфиденциальных данных</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" value="c" id="q1-c">
+              <label class="form-check-label" for="q1-c">Антивирусная программа</label>
+            </div>
+          </div>
+
+          <div class="quiz-question mb-3">
+            <p class="fw-bold mb-2">2. Что такое социальная инженерия?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q2" value="a" id="q2-a">
+              <label class="form-check-label" for="q2-a">Технический взлом сети</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q2" value="b" id="q2-b">
+              <label class="form-check-label" for="q2-b">Психологическое воздействие на человека</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q2" value="c" id="q2-c">
+              <label class="form-check-label" for="q2-c">Шифрование данных</label>
+            </div>
+          </div>
+
+          <div class="quiz-question">
+            <p class="fw-bold mb-2">3. Какой канал используют при вишинге?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q3" value="a" id="q3-a">
+              <label class="form-check-label" for="q3-a">Телефонный звонок</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q3" value="b" id="q3-b">
+              <label class="form-check-label" for="q3-b">Email</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q3" value="c" id="q3-c">
+              <label class="form-check-label" for="q3-c">SMS</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- РАЗДЕЛ 2 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed fw-semibold text-primary" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+          Раздел 2. Признаки
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse"
+           aria-labelledby="headingTwo" data-bs-parent="#questionsAccordion">
+        <div class="accordion-body">
+
+          <div class="quiz-question mb-3">
+            <p class="fw-bold mb-2">4. Что должно насторожить в письме?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q4" value="a" id="q4-a">
+              <label class="form-check-label" for="q4-a">Незнакомый адрес отправителя</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q4" value="b" id="q4-b">
+              <label class="form-check-label" for="q4-b">Логотип банка</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q4" value="c" id="q4-c">
+              <label class="form-check-label" for="q4-c">Приветствие по имени</label>
+            </div>
+          </div>
+
+          <div class="quiz-question mb-3">
+            <p class="fw-bold mb-2">5. Что означает замок в адресной строке?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q5" value="a" id="q5-a">
+              <label class="form-check-label" for="q5-a">Сайт честный</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q5" value="b" id="q5-b">
+              <label class="form-check-label" for="q5-b">Соединение зашифровано</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q5" value="c" id="q5-c">
+              <label class="form-check-label" for="q5-c">Сайт проверен банком</label>
+            </div>
+          </div>
+
+          <div class="quiz-question">
+            <p class="fw-bold mb-2">6. Что должно насторожить в ссылке?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q6" value="a" id="q6-a">
+              <label class="form-check-label" for="q6-a">Длинный адрес</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q6" value="b" id="q6-b">
+              <label class="form-check-label" for="q6-b">Адрес на русском</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q6" value="c" id="q6-c">
+              <label class="form-check-label" for="q6-c">Похожий, но чужой домен</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- РАЗДЕЛ 3 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed fw-semibold text-primary" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">
+          Раздел 3. Действия
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse"
+           aria-labelledby="headingThree" data-bs-parent="#questionsAccordion">
+        <div class="accordion-body">
+
+          <div class="quiz-question mb-3">
+            <p class="fw-bold mb-2">7. Что делать при получении подозрительного письма?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q7" value="a" id="q7-a">
+              <label class="form-check-label" for="q7-a">Не переходить по ссылке</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q7" value="b" id="q7-b">
+              <label class="form-check-label" for="q7-b">Ответить отправителю</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q7" value="c" id="q7-c">
+              <label class="form-check-label" for="q7-c">Открыть вложение</label>
+            </div>
+          </div>
+
+          <div class="quiz-question mb-3">
+            <p class="fw-bold mb-2">8. Кому можно сообщить код из SMS?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q8" value="a" id="q8-a">
+              <label class="form-check-label" for="q8-a">Сотруднику банка</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q8" value="b" id="q8-b">
+              <label class="form-check-label" for="q8-b">Никому</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q8" value="c" id="q8-c">
+              <label class="form-check-label" for="q8-c">Оператору связи</label>
+            </div>
+          </div>
+
+          <div class="quiz-question mb-3">
+            <p class="fw-bold mb-2">9. Куда обращаться при фишинге?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q9" value="a" id="q9-a">
+              <label class="form-check-label" for="q9-a">В магазин</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q9" value="b" id="q9-b">
+              <label class="form-check-label" for="q9-b">В школу</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q9" value="c" id="q9-c">
+              <label class="form-check-label" for="q9-c">В банк и CERT.BY</label>
+            </div>
+          </div>
+
+          <div class="quiz-question">
+            <p class="fw-bold mb-2">10. Что делать после ввода пароля на поддельном сайте?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q10" value="a" id="q10-a">
+              <label class="form-check-label" for="q10-a">Сменить пароль и включить 2FA</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q10" value="b" id="q10-b">
+              <label class="form-check-label" for="q10-b">Ничего не делать</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q10" value="c" id="q10-c">
+              <label class="form-check-label" for="q10-c">Закрыть вкладку и забыть</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row g-2 mt-4 align-items-center">
+    <div class="col-12 col-md-auto">
+      <button type="button" id="check-all-results-btn" class="btn btn-primary btn-hover rounded-3 px-4 py-2 fw-semibold w-100">Проверить все результаты</button>
+    </div>
+    <div class="col-12 col-md">
+      <div id="quiz-result" class="quiz-result"></div>
+    </div>
+  </div>
+
+</div>
+
+
+      <div class="progress-row d-flex justify-content-between fw-semibold text-primary mb-2">
+  <span>Прогресс ответов:</span>
+  <span id="progress-text">0 из 10 (0%)</span>
+</div>
+
+<!-- ==== BOOTSTRAP PROGRESS вместо jQuery UI Progressbar (Задание 6) ==== -->
+<div class="progress" role="progressbar"
+     aria-label="Прогресс ответов"
+     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+     style="height: 16px;">
+  <div class="progress-bar bg-primary" id="quiz-progressbar-fill" style="width: 0%;"></div>
+</div>
+
+      <h2 class="fs-3 fw-bold text-primary mt-5 mb-3">Практическое задание: порядок действий</h2>
+      <p class="mb-4 lh-base text-body">Перетащите шаги в правильном порядке.</p>
+
+      <div class="knowledge-form-card bg-white rounded-3 shadow-sm border border-light p-4 mb-4">
+        <ul id="sortable-steps" class="sortable-list">
+          <li class="sortable-item bg-white rounded-3 border border-light shadow-sm" data-step="3"><span class="drag-handle fw-bold text-primary">≡</span> Сообщить в службу безопасности</li>
+          <li class="sortable-item bg-white rounded-3 border border-light shadow-sm" data-step="1"><span class="drag-handle fw-bold text-primary">≡</span> Не переходить по ссылке</li>
+          <li class="sortable-item bg-white rounded-3 border border-light shadow-sm" data-step="4"><span class="drag-handle fw-bold text-primary">≡</span> Сменить пароль и включить 2FA</li>
+          <li class="sortable-item bg-white rounded-3 border border-light shadow-sm" data-step="2"><span class="drag-handle fw-bold text-primary">≡</span> Проверить адрес отправителя</li>
+        </ul>
+
+        <div class="row g-2 mt-3 align-items-center">
+          <div class="col-12 col-md-auto">
+            <button type="button" id="check-order-btn" class="btn btn-outline-primary btn-hover rounded-3 px-4 py-2 fw-semibold w-100">Проверить порядок</button>
+          </div>
+          <div class="col-12 col-md">
+            <div id="sort-result" class="quiz-result"></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="result-dialog" title="Итоговые результаты проверки знаний" style="display: none;">
+    <div id="dialog-content-text"></div>
+  </div>
+
+  <footer class="footer py-4 mt-5 bg-dark text-white">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4 class="fs-6 fw-bold mb-3 text-white">Навигация</h4>
+        <a href="index.html" class="footer-link text-white">Главная</a>
+        <a href="section-1.html" class="footer-link text-white">Угрозы</a>
+        <a href="section-2.html" class="footer-link text-white">Признаки</a>
+        <a href="section-3.html" class="footer-link text-white">Действия</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="fs-6 fw-bold mb-3 text-white">Контакты</h4>
+        <p class="mb-1 text-white">Учебное заведение</p>
+        <p class="mb-1 text-white">г. Пинск, ул. Федотова, 36</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="fs-6 fw-bold mb-3 text-white">Источники</h4>
+        <a href="https://certs.by" target="_blank" rel="noopener" class="footer-link text-white">certs.by</a>
+        <a href="https://nbrb.by" target="_blank" rel="noopener" class="footer-link text-white">nbrb.by</a>
+      </div>
+    </div>
+    <p class="footer-copy mt-4 mb-0 text-white">© Учебный проект «Портал безопасности»</p>
+  </footer>
+  <!-- ==== КОНТЕЙНЕР ДЛЯ УВЕДОМЛЕНИЙ (Задание 6) ==== -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 2000;">
+    <div id="appToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="appToastText">Сообщение</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог записей — Портал безопасности</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <!-- Подключаем ровно ту же версию jQuery, что и на других страницах -->
+  <script src="js/jquery-4.0.0.js"></script>
+<script src="js/app.js" defer></script>
+<script src="js/registry.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-circle">
+          <img src="assets/img/логотип.png" alt="Логотип" class="logo-img">
+        </span>
+        <span class="logo-text">Фишинг</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+     <nav class="nav" id="main-nav">
+        <a href="section-1.html" class="nav-link">Угрозы</a>
+        <a href="section-2.html" class="nav-link">Признаки</a>
+        <a href="section-3.html" class="nav-link">Действия</a>
+        <a href="checklist.html" class="nav-link active">Чек-лист</a>
+        <a href="registry.html" class="nav-link">Каталог</a>
+        <a href="knowledge.html" class="nav-link">Проверка знаний</a>
+        <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+      </nav>
+    </div>
+    <span class="indicator"></span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Чек-лист проверки</h1>
+      <p>Оцените, соответствует ли ваша организация требованиям по защите от фишинга и социальной инженерии.</p>
+    </div>
+  </section>
+
+  <div class="page">
+    
+    <!-- Боковая навигация -->
+    <aside class="page__aside">
+      <nav class="side-nav">
+        <h3 class="side-nav__title">Навигация по разделам</h3>
+        <ul class="side-nav__list">
+          <li class="side-nav__item">
+            <a href="section-1.html" class="side-nav__link">Раздел 1. Угрозы</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="section-2.html" class="side-nav__link">Раздел 2. Признаки</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="section-3.html" class="side-nav__link">Раздел 3. Действия</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="checklist.html" class="side-nav__link active">Чек-лист</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="registry.html" class="side-nav__link">Каталог</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="knowledge.html" class="side-nav__link">Проверка знаний</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="page__main">
+
+      <ol class="breadcrumbs">
+        <li><a href="index.html">Главная</a></li>
+        <li>Чек-лист</li>
+      </ol>
+
+      <div class="checklist-actions">
+        <button class="btn btn-main" id="show-result">Показать результат</button>
+        <button class="btn btn-light" id="clear-result">Очистить</button>
+      </div>
+
+      <div class="checklist-result" id="result">
+        <strong>Итог:</strong> <span id="result-text">Оценка не проведена</span>
+      </div>
+
+      <div class="checklist" id="checklist">
+
+        <div class="checklist-item" data-id="1">
+          <p class="checklist-question">1. Сотрудники знают, что такое фишинг и социальная инженерия.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q1" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q1" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q1" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="2">
+          <p class="checklist-question">2. Двухфакторная аутентификация включена на всех важных аккаунтах.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q2" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q2" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q2" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="3">
+          <p class="checklist-question">3. Для разных сайтов используются разные пароли.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q3" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q3" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q3" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="4">
+          <p class="checklist-question">4. Сотрудники проверяют адрес отправителя письма перед переходом.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q4" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q4" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q4" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="5">
+          <p class="checklist-question">5. Никто не сообщает код из SMS посторонним, даже «сотрудникам банка».</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q5" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q5" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q5" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="6">
+          <p class="checklist-question">6. Есть политика обработки инцидентов информационной безопасности.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q6" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q6" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q6" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="7">
+          <p class="checklist-question">7. Проводятся тренинги по кибербезопасности для сотрудников.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q7" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q7" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q7" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="8">
+          <p class="checklist-question">8. Электронная почта защищена антиспам-фильтром.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q8" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q8" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q8" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="9">
+          <p class="checklist-question">9. Сотрудники сообщают о подозрительных письмах в службу безопасности.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q9" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q9" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q9" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="10">
+          <p class="checklist-question">10. На сайте организации есть раздел о правилах безопасности.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q10" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q10" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q10" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="11">
+          <p class="checklist-question">11. Установлен антивирус и регулярно обновляется.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q11" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q11" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q11" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="12">
+          <p class="checklist-question">12. Ссылки на источники в материалах организации актуальны.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q12" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q12" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q12" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+        <div class="checklist-item" data-id="13">
+          <p class="checklist-question">13. Интерфейс сайта доступен для людей с ограниченными возможностями.</p>
+          <div class="checklist-options">
+            <label><input type="radio" name="q13" value="yes"> Соответствует</label>
+            <label><input type="radio" name="q13" value="no"> Не соответствует</label>
+            <label><input type="radio" name="q13" value="na"> Не применимо</label>
+          </div>
+          <textarea class="checklist-comment" placeholder="Комментарий..." hidden></textarea>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <a href="index.html">Главная</a>
+        <a href="section-1.html">Угрозы</a>
+        <a href="section-2.html">Признаки</a>
+        <a href="section-3.html">Действия</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <p>Учебное заведение</p>
+        <p>г. Пинск, ул. Федотова, 36</p>
+      </div>
+      <div class="footer-col">
+        <h4>Источники</h4>
+        <a href="https://certs.by" target="_blank" rel="noopener">certs.by</a>
+        <a href="https://nbrb.by" target="_blank" rel="noopener">nbrb.by</a>
+      </div>
+    </div>
+    <p class="footer-copy">© Учебный проект «Портал безопасности»</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const checklist = document.getElementById('checklist');
+      if (!checklist) return;
+
+      const STORAGE_KEY = 'checklist-results';
+      const resultBlock = document.getElementById('result');
+      const resultText = document.getElementById('result-text');
+      const showResultBtn = document.getElementById('show-result');
+      const clearResultBtn = document.getElementById('clear-result');
+
+      function saveResults() {
+        const items = checklist.querySelectorAll('.checklist-item');
+        const data = {};
+        items.forEach(item => {
+          const id = item.dataset.id;
+          const selected = item.querySelector('input[type="radio"]:checked');
+          const comment = item.querySelector('.checklist-comment').value;
+          data[id] = {
+            value: selected ? selected.value : null,
+            comment: comment
+          };
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }
+
+      function loadResults() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return;
+        try {
+          const data = JSON.parse(saved);
+          Object.keys(data).forEach(id => {
+            const item = checklist.querySelector(`.checklist-item[data-id="${id}"]`);
+            if (!item) return;
+            const record = data[id];
+            if (record.value) {
+              const radio = item.querySelector(`input[type="radio"][value="${record.value}"]`);
+              if (radio) {
+                radio.checked = true;
+                if (record.value === 'no') {
+                  item.classList.add('is-fail');
+                  const comment = item.querySelector('.checklist-comment');
+                  comment.hidden = false;
+                  comment.value = record.comment || '';
+                }
+              }
+            }
+          });
+        } catch (e) {
+          console.error('Ошибка загрузки сохранения', e);
+        }
+      }
+
+      checklist.addEventListener('change', (e) => {
+        if (e.target.matches('input[type="radio"]')) {
+          const item = e.target.closest('.checklist-item');
+          const comment = item.querySelector('.checklist-comment');
+          if (e.target.value === 'no') {
+            item.classList.add('is-fail');
+            comment.hidden = false;
+          } else {
+            item.classList.remove('is-fail');
+            comment.hidden = true;
+            comment.value = '';
+          }
+          saveResults();
+        }
+      });
+
+      checklist.addEventListener('input', (e) => {
+        if (e.target.matches('.checklist-comment')) {
+          saveResults();
+        }
+      });
+
+      if (showResultBtn) {
+        showResultBtn.addEventListener('click', () => {
+          const items = checklist.querySelectorAll('.checklist-item');
+          let yes = 0;
+          let total = 0;
+          items.forEach(item => {
+            const selected = item.querySelector('input[type="radio"]:checked');
+            if (!selected) return;
+            if (selected.value === 'na') return;
+            total++;
+            if (selected.value === 'yes') yes++;
+          });
+          const percent = total === 0 ? 0 : Math.round((yes / total) * 100);
+          
+          let levelText = '';
+          if (percent >= 80) {
+            levelText = 'Высокий уровень соответствия';
+          } else if (percent >= 50) {
+            levelText = 'Удовлетворительный уровень соответствия';
+          } else {
+            levelText = 'Низкий уровень соответствия (есть несоответствия)';
+          }
+
+          resultText.innerHTML = `${percent}% (${levelText})`;
+          resultBlock.classList.remove('result-high', 'result-mid', 'result-low');
+          if (percent >= 80) {
+            resultBlock.classList.add('result-high');
+          } else if (percent >= 50) {
+            resultBlock.classList.add('result-mid');
+          } else {
+            resultBlock.classList.add('result-low');
+          }
+        });
+      }
+
+      if (clearResultBtn) {
+        clearResultBtn.addEventListener('click', () => {
+          if (confirm('Удалить все ответы?')) {
+            localStorage.removeItem(STORAGE_KEY);
+            const items = checklist.querySelectorAll('.checklist-item');
+            items.forEach(item => {
+              const radios = item.querySelectorAll('input[type="radio"]');
+              radios.forEach(r => r.checked = false);
+              item.classList.remove('is-fail');
+              const comment = item.querySelector('.checklist-comment');
+              comment.value = '';
+              comment.hidden = true;
+            });
+            resultText.textContent = 'Оценка не проведена';
+            resultBlock.classList.remove('result-high', 'result-mid', 'result-low');
+          }
+        });
+      }
+
+      loadResults();
+    });
+  </script>
+  <!-- ==== КОНТЕЙНЕР ДЛЯ УВЕДОМЛЕНИЙ (Задание 6) ==== -->
+  <div id="appToast" role="alert" aria-live="assertive">
+  <span id="appToastText"></span>
+</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Раздел 1. Угрозы — Портал безопасности</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-circle">
+          <img src="assets/img/логотип.png" alt="Логотип" class="logo-img">
+        </span>
+        <span class="logo-text">Фишинг</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="main-nav">
+        <a href="section-1.html" class="nav-link active">Угрозы</a>
+        <a href="section-2.html" class="nav-link">Признаки</a>
+        <a href="section-3.html" class="nav-link">Действия</a>
+        <a href="checklist.html" class="nav-link">Чек-лист</a>
+        <a href="registry.html" class="nav-link">Каталог</a>
+        <a href="knowledge.html" class="nav-link">Проверка знаний</a>
+        <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+      </nav>
+    </div>
+    <span class="indicator"></span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Основные угрозы</h1>
+      <p>Как устроены атаки изнутри, какие приёмы используют мошенники и почему даже осторожные люди попадаются.</p>
+    </div>
+  </section>
+
+  <div class="container my-4">
+
+    <ol class="breadcrumbs">
+      <li><a href="index.html">Главная</a></li>
+      <li>Раздел 1. Угрозы</li>
+    </ol>
+
+    <div class="row g-4">
+
+      <!-- ОСНОВНОЙ КОНТЕНТ — первым в HTML и первым визуально -->
+      <main class="col-12 col-lg-9 order-1">
+
+        <section id="t1-1" class="mb-5">
+          <h2>1.1. Как работает атака: три этапа</h2>
+          <p>
+            Любая фишинговая атака состоит из трёх последовательных этапов.
+            Понимание каждого из них помогает вовремя остановиться.
+          </p>
+          <ol>
+            <li><strong>Подготовка.</strong> Злоумышленник собирает данные о жертве.</li>
+            <li><strong>Контакт.</strong> Жертве приходит письмо, звонок или SMS.</li>
+            <li><strong>Получение данных.</strong> Жертва вводит пароль, сообщает код из SMS.</li>
+          </ol>
+        </section>
+
+        <section id="t1-2" class="mb-5">
+          <h2>1.2. Психологические приёмы мошенников</h2>
+          <ul>
+            <li><strong>Срочность.</strong> «Ваш аккаунт заблокируют через час».</li>
+            <li><strong>Страх.</strong> «Замечена подозрительная операция».</li>
+            <li><strong>Авторитет.</strong> «Служба безопасности банка».</li>
+            <li><strong>Любопытство.</strong> «Вам пришёл крупный перевод».</li>
+            <li><strong>Выгода.</strong> «Вы выиграли приз».</li>
+            <li><strong>Доверие.</strong> Сообщение от «друга».</li>
+          </ul>
+        </section>
+
+        <section id="t1-3" class="mb-5">
+          <h2>1.3. Технические схемы</h2>
+          <p>Мошенники используют разные способы, чтобы подделать письмо, сайт или звонок.</p>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Подмена адреса</h5>
+                  <p class="card-text">Письмо приходит с адреса, похожего на официальный.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Гомоглифы</h5>
+                  <p class="card-text">Латинские буквы заменяют кириллическими — адрес выглядит одинаково.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Подделка сертификата</h5>
+                  <p class="card-text">SSL-сертификат на похожий домен — замок не гарантия честности.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="t1-4" class="mb-5">
+          <h2>1.4. Почему это работает</h2>
+          <ul>
+            <li>Мозг экономит энергию и не проверяет каждую ссылку.</li>
+            <li>Срочность отключает критическое мышление.</li>
+            <li>Авторитет подавляет сомнения.</li>
+            <li>Усталость и многозадачность снижают внимание.</li>
+          </ul>
+        </section>
+
+        <section id="t1-5" class="mb-5">
+          <h2>1.5. Как меняется фишинг</h2>
+          <ul>
+            <li><strong>Голосовые боты</strong> — робот звонит от имени банка.</li>
+            <li><strong>Дипфейки</strong> — видео с лицом руководителя.</li>
+            <li><strong>QR-фишинг</strong> — ссылка в QR-коде на квитанции.</li>
+            <li><strong>Чат-боты</strong> — «бот поддержки» в мессенджере.</li>
+            <li><strong>Фишинг в играх</strong> — бесплатная валюта за логин.</li>
+          </ul>
+        </section>
+
+        <aside class="notice notice--warning mb-5">
+          <strong>Ключевое требование</strong>
+          Никогда не сообщайте код из SMS, пароль или данные карты
+          по телефону, в письме или в мессенджере.
+        </aside>
+
+        <section class="mb-5">
+  <h2 class="fs-3 fw-bold text-primary mb-3">Справочные данные</h2>
+
+  <div class="table-responsive rounded-3 shadow-sm border">
+    <table class="table table-striped table-hover align-middle mb-0">
+      <caption class="caption-top text-primary fw-semibold p-3">Психологические приёмы и противодействие</caption>
+      <thead>
+        <tr>
+          <th scope="col">Приём</th>
+          <th scope="col">Пример</th>
+          <th scope="col">Что делать</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Срочность</td>
+          <td>«Заблокируем через час»</td>
+          <td>Остановиться и подумать</td>
+        </tr>
+        <tr>
+          <td>Страх</td>
+          <td>«Подозрительная операция»</td>
+          <td>Позвонить в банк самому</td>
+        </tr>
+        <tr>
+          <td>Авторитет</td>
+          <td>«Служба безопасности»</td>
+          <td>Проверить номер</td>
+        </tr>
+        <tr>
+          <td>Любопытство</td>
+          <td>«Вам перевод»</td>
+          <td>Не открывать письмо</td>
+        </tr>
+        <tr>
+          <td>Выгода</td>
+          <td>«Вы выиграли приз»</td>
+          <td>Не вводить данные карты</td>
+        </tr>
+        <tr>
+          <td>Доверие</td>
+          <td>Сообщение от «друга»</td>
+          <td>Позвонить другу напрямую</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+      </main>
+
+      <!-- БОКОВАЯ НАВИГАЦИЯ — вторая в HTML и визуально -->
+      <aside class="col-12 col-lg-3 order-2">
+        <nav class="side-nav">
+          <h3 class="side-nav__title">Навигация по разделам</h3>
+          <ul class="side-nav__list">
+            <li class="side-nav__item has-sub">
+              <a href="section-1.html" class="side-nav__link active">Раздел 1. Угрозы</a>
+              <ul class="sub-nav__list">
+                <li><a href="#t1-1" class="sub-nav__link">1.1. Этапы атаки</a></li>
+                <li><a href="#t1-2" class="sub-nav__link">1.2. Приёмы мошенников</a></li>
+                <li><a href="#t1-3" class="sub-nav__link">1.3. Технические схемы</a></li>
+                <li><a href="#t1-4" class="sub-nav__link">1.4. Почему это работает</a></li>
+                <li><a href="#t1-5" class="sub-nav__link">1.5. Как меняется фишинг</a></li>
+              </ul>
+            </li>
+            <li class="side-nav__item">
+              <a href="section-2.html" class="side-nav__link">Раздел 2. Признаки</a>
+            </li>
+            <li class="side-nav__item">
+              <a href="section-3.html" class="side-nav__link">Раздел 3. Действия</a>
+            </li>
+            <li class="side-nav__item">
+              <a href="checklist.html" class="side-nav__link">Чек-лист</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <a href="index.html">Главная</a>
+        <a href="section-1.html">Угрозы</a>
+        <a href="section-2.html">Признаки</a>
+        <a href="section-3.html">Действия</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <p>Учебное заведение</p>
+        <p>г. Пинск, ул. Федотова, 36</p>
+      </div>
+      <div class="footer-col">
+        <h4>Источники</h4>
+        <a href="https://certs.by" target="_blank" rel="noopener">certs.by</a>
+        <a href="https://nbrb.by" target="_blank" rel="noopener">nbrb.by</a>
+      </div>
+    </div>
+    <p class="footer-copy">© Учебный проект «Портал безопасности»</p>
+  </footer>
+
+</body>
+</html>

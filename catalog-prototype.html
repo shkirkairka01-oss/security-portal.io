@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — прототип на Bootstrap</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/bootstrap.bundle.min.js" defer></script>
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #1e3c72, #6a11cb);">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Портал безопасности</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Каталог</a></li>
+          <li class="nav-item"><a class="nav-link" href="checklist.html">Чек-лист</a></li>
+          <li class="nav-item"><a class="nav-link" href="knowledge.html">Проверка знаний</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+
+    <h1 class="mb-4">Каталог записей</h1>
+
+    <!-- ФИЛЬТРЫ -->
+    <div class="row g-3 mb-4">
+
+      <div class="col-12 col-md-5">
+        <label class="form-label">Поиск</label>
+        <input type="text" class="form-control" id="catalog-search" placeholder="Поиск по наименованию...">
+      </div>
+
+      <div class="col-12 col-md-3">
+        <label class="form-label">Раздел</label>
+        <select class="form-select" id="catalog-section">
+          <option value="all">Все разделы</option>
+          <option value="Угрозы">Раздел 1. Угрозы</option>
+          <option value="Признаки">Раздел 2. Признаки</option>
+          <option value="Действия">Раздел 3. Действия</option>
+        </select>
+      </div>
+
+      <div class="col-12 col-md-2">
+        <label class="form-label">Сортировка</label>
+        <select class="form-select" id="catalog-sort">
+          <option value="default">По дате</option>
+          <option value="name-asc">По имени (А–Я)</option>
+          <option value="name-desc">По имени (Я–А)</option>
+        </select>
+      </div>
+
+      <div class="col-12 col-md-2 d-flex align-items-end">
+        <button class="btn btn-primary w-100" id="catalog-apply">Применить</button>
+      </div>
+
+    </div>
+
+    <div class="row g-4">
+
+      <!-- БОКОВАЯ ИНФОРМАЦИЯ -->
+      <aside class="col-12 col-lg-3">
+
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Статистика</h5>
+            <p class="card-text mb-1">Всего записей: <strong id="stat-total">15</strong></p>
+            <p class="card-text mb-1">Разделов: <strong>3</strong></p>
+            <p class="card-text mb-0">Обновлено: <strong>15.10.2026</strong></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Разделы</h5>
+            <ul class="list-unstyled mb-0">
+              <li><a href="section-1.html">Раздел 1. Угрозы</a></li>
+              <li><a href="section-2.html">Раздел 2. Признаки</a></li>
+              <li><a href="section-3.html">Раздел 3. Действия</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ТАБЛИЦА -->
+      <div class="col-12 col-lg-9">
+
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle" id="catalog-table">
+            <thead>
+              <tr>
+                <th>№</th>
+                <th>Наименование</th>
+                <th>Раздел</th>
+                <th>Дата</th>
+                <th>Аннотация</th>
+              </tr>
+            </thead>
+            <tbody id="catalog-tbody">
+              <tr data-section="Угрозы" data-name="Что такое фишинг">
+                <td>1</td>
+                <td>Что такое фишинг</td>
+                <td>Угрозы</td>
+                <td>12.10.2026</td>
+                <td>Определение, виды, кто становится жертвой</td>
+              </tr>
+              <tr data-section="Признаки" data-name="Признаки фишингового письма">
+                <td>2</td>
+                <td>Признаки фишингового письма</td>
+                <td>Признаки</td>
+                <td>13.10.2026</td>
+                <td>Адрес отправителя, ссылки, вложения</td>
+              </tr>
+              <tr data-section="Действия" data-name="Что делать при атаке">
+                <td>3</td>
+                <td>Что делать при атаке</td>
+                <td>Действия</td>
+                <td>14.10.2026</td>
+                <td>Алгоритм действий и куда обращаться</td>
+              </tr>
+              <tr data-section="Действия" data-name="Двухфакторная аутентификация">
+                <td>4</td>
+                <td>Двухфакторная аутентификация</td>
+                <td>Действия</td>
+                <td>14.10.2026</td>
+                <td>Как включить 2FA и зачем она нужна</td>
+              </tr>
+              <tr data-section="Угрозы" data-name="Социальная инженерия">
+                <td>5</td>
+                <td>Социальная инженерия</td>
+                <td>Угрозы</td>
+                <td>15.10.2026</td>
+                <td>Психологические приёмы мошенников</td>
+              </tr>
+              <tr data-section="Угрозы" data-name="Вишинг и смишинг">
+                <td>6</td>
+                <td>Вишинг и смишинг</td>
+                <td>Угрозы</td>
+                <td>15.10.2026</td>
+                <td>Мошеннические звонки и SMS со ссылками</td>
+              </tr>
+              <tr data-section="Угрозы" data-name="Целевой фишинг (spear)">
+                <td>7</td>
+                <td>Целевой фишинг (spear)</td>
+                <td>Угрозы</td>
+                <td>15.10.2026</td>
+                <td>Адресное письмо под конкретного человека</td>
+              </tr>
+              <tr data-section="Признаки" data-name="Подозрительные вложения в письме">
+                <td>8</td>
+                <td>Подозрительные вложения в письме</td>
+                <td>Признаки</td>
+                <td>14.10.2026</td>
+                <td>Файлы .exe, .scr, .js, архивы с паролем</td>
+              </tr>
+              <tr data-section="Признаки" data-name="Поддельный сайт банка">
+                <td>9</td>
+                <td>Поддельный сайт банка</td>
+                <td>Признаки</td>
+                <td>14.10.2026</td>
+                <td>Похожий домен, размытый логотип, нет HTTPS</td>
+              </tr>
+              <tr data-section="Признаки" data-name="Признаки мошеннического звонка">
+                <td>10</td>
+                <td>Признаки мошеннического звонка</td>
+                <td>Признаки</td>
+                <td>13.10.2026</td>
+                <td>Срочность, просьба кода из SMS, «безопасный счёт»</td>
+              </tr>
+              <tr data-section="Действия" data-name="Смена пароля после атаки">
+                <td>11</td>
+                <td>Смена пароля после атаки</td>
+                <td>Действия</td>
+                <td>12.10.2026</td>
+                <td>Как сменить пароль и включить 2FA</td>
+              </tr>
+              <tr data-section="Действия" data-name="Куда сообщать о фишинге">
+                <td>12</td>
+                <td>Куда сообщать о фишинге</td>
+                <td>Действия</td>
+                <td>12.10.2026</td>
+                <td>CERT.BY, банк, служба безопасности организации</td>
+              </tr>
+              <tr data-section="Действия" data-name="Проверка устройства антивирусом">
+                <td>13</td>
+                <td>Проверка устройства антивирусом</td>
+                <td>Действия</td>
+                <td>11.10.2026</td>
+                <td>После перехода по фишинговой ссылке</td>
+              </tr>
+              <tr data-section="Угрозы" data-name="Фарминг и клонирование сайта">
+                <td>14</td>
+                <td>Фарминг и клонирование сайта</td>
+                <td>Угрозы</td>
+                <td>11.10.2026</td>
+                <td>Точная копия настоящего сайта с другим адресом</td>
+              </tr>
+              <tr data-section="Угрозы" data-name="Дипфейки и голосовые боты">
+                <td>15</td>
+                <td>Дипфейки и голосовые боты</td>
+                <td>Угрозы</td>
+                <td>10.10.2026</td>
+                <td>Новые технологии в социальной инженерии</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="text-muted" id="catalog-count">Показано: 1–5 из 15</p>
+
+        <!-- ПАГИНАЦИЯ -->
+        <nav>
+          <ul class="pagination justify-content-center mt-3" id="catalog-pagination">
+            <li class="page-item disabled" id="page-prev">
+              <a class="page-link" href="#" data-page="prev">Назад</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#" data-page="1">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" data-page="2">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" data-page="3">3</a>
+            </li>
+            <li class="page-item" id="page-next">
+              <a class="page-link" href="#" data-page="next">Вперёд</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ПОДВАЛ -->
+  <footer class="py-4 mt-5" style="background: #1b2333; color: white;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="mb-0">© Учебный проект «Портал безопасности»</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const PER_PAGE = 5;                          // записей на странице
+      let currentPage = 1;                         // текущая страница
+      let filteredRows = [];                       // строки после фильтрации
+
+      const tbody = document.getElementById('catalog-tbody');
+      const allRows = Array.from(tbody.querySelectorAll('tr'));
+      const countEl = document.getElementById('catalog-count');
+      const statEl = document.getElementById('stat-total');
+      const pagination = document.getElementById('catalog-pagination');
+      const prevLi = document.getElementById('page-prev');
+      const nextLi = document.getElementById('page-next');
+
+      // --- Показать текущую страницу ---
+      function renderPage() {
+        const total = filteredRows.length;
+        const totalPages = Math.ceil(total / PER_PAGE) || 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        const start = (currentPage - 1) * PER_PAGE;
+        const end = start + PER_PAGE;
+
+        // Скрываем все строки
+        allRows.forEach(r => r.style.display = 'none');
+
+        // Показываем только текущую страницу
+        filteredRows.slice(start, end).forEach(r => r.style.display = '');
+
+        // Счётчик
+        const shownFrom = total === 0 ? 0 : start + 1;
+        const shownTo = Math.min(end, total);
+        countEl.textContent = `Показано: ${shownFrom}–${shownTo} из ${total}`;
+
+        // Обновляем кнопки пагинации
+        updatePagination(totalPages);
+
+        // Обновляем статистику
+        statEl.textContent = total;
+      }
+
+      // --- Обновить кнопки пагинации ---
+      function updatePagination(totalPages) {
+        // Удаляем старые номера страниц (не Назад и не Вперёд)
+        pagination.querySelectorAll('li:not(#page-prev):not(#page-next)').forEach(li => li.remove());
+
+        // Вставляем номера страниц перед "Вперёд"
+        for (let i = 1; i <= totalPages; i++) {
+          const li = document.createElement('li');
+          li.className = 'page-item' + (i === currentPage ? ' active' : '');
+          li.innerHTML = `<a class="page-link" href="#" data-page="${i}">${i}</a>`;
+          pagination.insertBefore(li, nextLi);
+        }
+
+        // Назад — активна, если не первая страница
+        prevLi.classList.toggle('disabled', currentPage === 1);
+
+        // Вперёд — активна, если не последняя
+        nextLi.classList.toggle('disabled', currentPage === totalPages);
+      }
+
+      // --- Клик по пагинации ---
+      pagination.addEventListener('click', function (e) {
+        const link = e.target.closest('a[data-page]');
+        if (!link) return;
+        e.preventDefault();
+
+        const data = link.getAttribute('data-page');
+        const totalPages = Math.ceil(filteredRows.length / PER_PAGE) || 1;
+
+        if (data === 'prev' && currentPage > 1) currentPage--;
+        else if (data === 'next' && currentPage < totalPages) currentPage++;
+        else if (!isNaN(parseInt(data, 10))) currentPage = parseInt(data, 10);
+
+        renderPage();
+      });
+
+      // --- Кнопка "Применить" ---
+      document.getElementById('catalog-apply').addEventListener('click', function () {
+        const query = document.getElementById('catalog-search').value.trim().toLowerCase();
+        const section = document.getElementById('catalog-section').value;
+        const sort = document.getElementById('catalog-sort').value;
+
+        // Фильтрация
+        filteredRows = allRows.filter(row => {
+          const name = row.dataset.name.toLowerCase();
+          const rowSection = row.dataset.section;
+          const matchQuery = query === '' || name.includes(query);
+          const matchSection = section === 'all' || rowSection === section;
+          return matchQuery && matchSection;
+        });
+
+        // Сортировка
+        if (sort === 'name-asc' || sort === 'name-desc') {
+          filteredRows.sort((a, b) => {
+            const an = a.dataset.name.toLowerCase();
+            const bn = b.dataset.name.toLowerCase();
+            return sort === 'name-asc' ? an.localeCompare(bn) : bn.localeCompare(an);
+          });
+          // Переставляем строки в DOM
+          filteredRows.forEach(r => tbody.appendChild(r));
+        }
+
+        // Сброс на первую страницу
+        currentPage = 1;
+        renderPage();
+      });
+
+      // --- Первый запуск ---
+      filteredRows = allRows.slice();
+      renderPage();
+
+    });
+  </script>
+
+</body>
+</html>

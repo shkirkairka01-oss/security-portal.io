@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портал безопасности — Фишинг и социальная инженерия</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <div class="ticker">
+    <p class="ticker-text fw-bold text-dark">
+      Внимание! Не переходите по подозрительным ссылкам. Никогда не сообщайте пароли и коды из SMS.
+    </p>
+  </div>
+
+  <!-- ШАПКА — Navbar Bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-dark header" aria-label="Основная навигация">
+    <div class="container-fluid header-inner">
+
+      <a class="navbar-brand logo d-flex align-items-center gap-2 text-white text-decoration-none" href="index.html">
+        <span class="logo-circle">
+          <img src="assets/img/логотип.png" alt="Логотип портала" class="logo-img">
+        </span>
+        <span class="logo-text fw-bold">Фишинг</span>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-2 align-items-lg-center">
+
+          <li class="nav-item">
+            <a class="nav-link nav-link-hover rounded-2 fw-semibold text-white" href="section-1.html">Угрозы</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-hover rounded-2 fw-semibold text-white" href="section-2.html">Признаки</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-hover rounded-2 fw-semibold text-white" href="section-3.html">Действия</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-hover rounded-2 fw-semibold text-white" href="checklist.html">Чек-лист</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-hover rounded-2 fw-semibold text-white" href="registry.html">Каталог</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-hover rounded-2 fw-semibold text-white" href="knowledge.html">Проверка знаний</a>
+          </li>
+          <li class="nav-item">
+            <button class="theme-toggle theme-toggle-hover rounded-2" aria-label="Переключить тему">🌙</button>
+          </li>
+
+        </ul>
+      </div>
+
+      <span class="indicator"></span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="display-5 fw-bold mb-3 text-white">Фишинг и социальная инженерия</h1>
+      <p class="lead mb-0 text-white">Узнайте, как распознать обман и защитить свои данные.</p>
+    </div>
+    <button class="btn btn-main btn-hover mt-3 bg-primary text-white fw-semibold rounded-3" id="open-modal">Пояснение по теме</button>
+  </section>
+
+  <main class="page__main">
+
+    <section id="threats" class="section py-5 px-4 text-start">
+      <h2 class="fs-3 fw-bold text-primary mb-3">Основные угрозы</h2>
+
+      <p class="mb-3 lh-base text-body">
+        Фишинг — это вид интернет-мошенничества, при котором злоумышленник
+        под видом надёжной организации выманивает у человека конфиденциальные
+        данные: логины, пароли, коды из SMS, данные банковских карт.
+        Социальная инженерия — это метод психологического воздействия,
+        при котором жертва сама отдаёт секретные данные, не подозревая обмана.
+      </p>
+
+      <p class="mb-4 lh-base text-body">
+        Главная опасность в том, что жертва раскрывает данные <strong class="fw-bold">добровольно</strong>:
+        сама вводит пароль на поддельном сайте, сама сообщает код из SMS,
+        сама переводит деньги.
+      </p>
+
+      <h3 class="fs-5 fw-semibold text-primary mt-4 mb-3">Основные виды фишинга</h3>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 bg-white rounded-3 shadow-sm border border-light card-hover">
+            <div class="card-body p-4">
+              <h3 class="fs-5 fw-bold text-primary mb-2">Массовый фишинг</h3>
+              <p class="mb-0 lh-base text-body">Одинаковые письма рассылаются тысячам людей от имени банков, госуслуг, магазинов.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 bg-white rounded-3 shadow-sm border border-light card-hover">
+            <div class="card-body p-4">
+              <h3 class="fs-5 fw-bold text-primary mb-2">Целевой фишинг (spear)</h3>
+              <p class="mb-0 lh-base text-body">Письмо написано под одного человека: указано его имя, должность, место работы.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card-radial h-100 rounded-3 shadow-sm border border-light card-hover">
+            <div class="card-body p-4">
+              <h3 class="fs-5 fw-bold text-primary mb-2">Вишинг и смишинг</h3>
+              <p class="mb-0 lh-base text-body">Вишинг — звонок от «сотрудника банка». Смишинг — SMS со ссылкой на поддельный сайт.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="fs-5 fw-semibold text-primary mt-4 mb-3">Другие формы атак</h3>
+      <ul class="mb-4">
+        <li class="mb-2 lh-base text-body"><strong class="fw-bold">Фарминг</strong> — перенаправление на поддельный сайт без ведома пользователя.</li>
+        <li class="mb-2 lh-base text-body"><strong class="fw-bold">Клонирование сайта</strong> — точная копия настоящего сайта, но с другим адресом.</li>
+        <li class="mb-2 lh-base text-body"><strong class="fw-bold">Подмена номера</strong> — звонок или SMS от имени банка с поддельного номера.</li>
+        <li class="mb-2 lh-base text-body"><strong class="fw-bold">Фальшивые приложения</strong> — программы под видом банковских, крадут пароли.</li>
+        <li class="mb-2 lh-base text-body"><strong class="fw-bold">Соцсети</strong> — сообщения от «друзей» с просьбой проголосовать по ссылке.</li>
+        <li class="mb-2 lh-base text-body"><strong class="fw-bold">Работа и призы</strong> — предложения заработать или выиграть приз за данные карты.</li>
+      </ul>
+
+      <h3 class="fs-5 fw-semibold text-primary mt-4 mb-3">Кто чаще всего становится жертвой</h3>
+      <ul class="mb-4">
+        <li class="mb-2 lh-base text-body">Пожилые люди — им сложнее проверить адрес сайта и распознать обман.</li>
+        <li class="mb-2 lh-base text-body">Новые сотрудники — ещё не знают внутренних правил безопасности.</li>
+        <li class="mb-2 lh-base text-body">Люди в стрессе или спешке — не проверяют адрес отправителя.</li>
+        <li class="mb-2 lh-base text-body">Пользователи с одним паролем на всех сайтах.</li>
+        <li class="mb-2 lh-base text-body">Те, кто не включает двухфакторную аутентификацию.</li>
+        <li class="mb-2 lh-base text-body">Люди, которые доверяют любому звонку «из банка».</li>
+      </ul>
+
+      <h3 class="fs-5 fw-semibold text-primary mt-4 mb-3">Чем это опасно</h3>
+      <ul class="mb-4">
+        <li class="mb-2 lh-base text-body">Кража денег со счёта или банковской карты.</li>
+        <li class="mb-2 lh-base text-body">Взлом почты, соцсетей, мессенджеров.</li>
+        <li class="mb-2 lh-base text-body">Кража личных данных и оформление кредитов от вашего имени.</li>
+        <li class="mb-2 lh-base text-body">Заражение компьютера вирусом или программой-шпионом.</li>
+        <li class="mb-2 lh-base text-body">Потеря доступа к рабочим документам и переписке.</li>
+        <li class="mb-2 lh-base text-body">Репутационные потери: от вашего имени могут писать знакомым.</li>
+      </ul>
+
+      <h3 class="fs-5 fw-semibold text-primary mt-4 mb-3">Как защититься</h3>
+      <ul class="mb-4">
+        <li class="mb-2 lh-base text-body">Проверять адрес отправителя и адрес сайта перед вводом данных.</li>
+        <li class="mb-2 lh-base text-body">Не переходить по ссылкам из писем — вводить адрес банка вручную.</li>
+        <li class="mb-2 lh-base text-body">Никогда не сообщать коды из SMS даже «сотруднику банка».</li>
+        <li class="mb-2 lh-base text-body">Включить двухфакторную аутентификацию везде, где можно.</li>
+        <li class="mb-2 lh-base text-body">Использовать разные пароли для разных сайтов.</li>
+        <li class="mb-2 lh-base text-body">Регулярно обновлять браузер, антивирус и систему.</li>
+      </ul>
+
+      <h3 class="fs-5 fw-semibold text-primary mt-4 mb-3">Что запомнить</h3>
+      <p class="mb-0 lh-base text-body">
+        Фишинг — это обман, а не взлом. Главная защита — внимание
+        и привычка проверять адреса, отправителей и ссылки.
+      </p>
+    </section>
+
+    <section id="signs" class="section py-5 px-4 text-start">
+      <h2 class="fs-3 fw-bold text-primary mb-3">Признаки фишинга</h2>
+      <p class="mb-3 lh-base text-body">Если заметили хотя бы два-три признака — не переходите по ссылке.</p>
+
+      <ul class="mb-4">
+        <li class="mb-2 lh-base text-body">Адрес отправителя не совпадает с настоящим.</li>
+        <li class="mb-2 lh-base text-body">Ссылка ведёт на похожий, но чужой сайт.</li>
+        <li class="mb-2 lh-base text-body">Текст торопит: «Срочно! Аккаунт заблокируют!»</li>
+        <li class="mb-2 lh-base text-body">Просят ввести пароль или код из SMS.</li>
+        <li class="mb-2 lh-base text-body">В тексте есть ошибки и странное оформление.</li>
+        <li class="mb-2 lh-base text-body">Странные вложения: .exe, .scr, .js.</li>
+      </ul>
+    </section>
+
+   <section class="section py-5 px-4 text-start">
+  <h2 class="fs-3 fw-bold text-primary mb-3">Разделы</h2>
+
+  <div class="search-block mb-4">
+    <input type="search" id="search" class="search-input form-control form-control-hover rounded-3 border" placeholder="Поиск по разделам...">
+    <p class="search-count mt-2 text-muted" id="search-count"></p>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Карточка 1 -->
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+      <article class="card h-100 bg-white rounded-3 shadow-sm border border-light card-hover">
+        <img src="assets/img/icon-threats.svg" class="card-img-top p-3" alt="Иконка раздела Угрозы" style="height: 120px; object-fit: contain;">
+        <div class="card-body p-4 d-flex flex-column">
+          <h3 class="card-title fs-5 fw-bold text-primary mb-2">
+            <a href="section-1.html" class="text-decoration-none text-primary link-hover">Угрозы</a>
+          </h3>
+          <p class="card-text mb-4 lh-base text-body flex-grow-1">Виды фишинга и методы социальной инженерии.</p>
+          <a href="section-1.html" class="btn btn-outline-primary btn-hover rounded-3 fw-semibold mt-auto align-self-start px-3 py-2">Подробнее</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Карточка 2 -->
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+      <article class="card h-100 bg-white rounded-3 shadow-sm border border-light card-hover">
+        <img src="assets/img/icon-signs.svg" class="card-img-top p-3" alt="Иконка раздела Признаки" style="height: 120px; object-fit: contain;">
+        <div class="card-body p-4 d-flex flex-column">
+          <h3 class="card-title fs-5 fw-bold text-primary mb-2">
+            <a href="section-2.html" class="text-decoration-none text-primary link-hover">Признаки</a>
+          </h3>
+          <p class="card-text mb-4 lh-base text-body flex-grow-1">Как отличить поддельное письмо от настоящего.</p>
+          <a href="section-2.html" class="btn btn-outline-primary btn-hover rounded-3 fw-semibold mt-auto align-self-start px-3 py-2">Подробнее</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Карточка 3 -->
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+      <article class="card h-100 bg-white rounded-3 shadow-sm border border-light card-hover">
+        <img src="assets/img/icon-actions.svg" class="card-img-top p-3" alt="Иконка раздела Действия" style="height: 120px; object-fit: contain;">
+        <div class="card-body p-4 d-flex flex-column">
+          <h3 class="card-title fs-5 fw-bold text-primary mb-2">
+            <a href="section-3.html" class="text-decoration-none text-primary link-hover">Действия</a>
+          </h3>
+          <p class="card-text mb-4 lh-base text-body flex-grow-1">Алгоритм поведения при атаке.</p>
+          <a href="section-3.html" class="btn btn-outline-primary btn-hover rounded-3 fw-semibold mt-auto align-self-start px-3 py-2">Подробнее</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Карточка 4 -->
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+      <article class="card card-radial h-100 rounded-3 shadow-sm border border-light card-hover">
+        <img src="assets/img/icon-trainer.svg" class="card-img-top p-3" alt="Иконка раздела Тренажёр" style="height: 120px; object-fit: contain;">
+        <div class="card-body p-4 d-flex flex-column">
+          <h3 class="card-title fs-5 fw-bold text-primary mb-2">Тренажёр</h3>
+          <p class="card-text mb-4 lh-base text-body flex-grow-1">Ситуационные задачи для самопроверки.</p>
+          <a href="#trainer" class="btn btn-outline-primary btn-hover rounded-3 fw-semibold mt-auto align-self-start px-3 py-2">Подробнее</a>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+    <section id="actions" class="section py-5 px-4 text-start">
+      <h2 class="fs-3 fw-bold text-primary mb-3">Алгоритм при атаке</h2>
+      <p class="mb-3 lh-base text-body">Если получили подозрительное письмо — действуйте по шагам.</p>
+
+      <ol class="mb-4">
+        <li class="mb-2 lh-base text-body">Не переходить по ссылке и не открывать вложения.</li>
+        <li class="mb-2 lh-base text-body">Проверить адрес отправителя.</li>
+        <li class="mb-2 lh-base text-body">Позвонить в банк по номеру с карты.</li>
+        <li class="mb-2 lh-base text-body">Сообщить в службу безопасности.</li>
+        <li class="mb-2 lh-base text-body">Сменить пароль и включить двухфакторную защиту.</li>
+      </ol>
+
+      <div class="buttons">
+        <a href="#trainer" class="btn btn-main btn-hover bg-primary text-white fw-semibold rounded-3 px-4 py-2 me-2">К тренажёру</a>
+        <a href="#signs" class="btn btn-light btn-hover bg-white text-primary border border-2 border-primary fw-semibold rounded-3 px-4 py-2">Повторить признаки</a>
+      </div>
+    </section>
+
+    <section id="trainer" class="section py-5 px-4 text-start">
+      <h2 class="fs-3 fw-bold text-primary mb-3">Тренажёр</h2>
+      <p class="mb-4 lh-base text-body">Вам пришло письмо от «службы безопасности банка» с просьбой подтвердить операцию по ссылке. Что вы сделаете?</p>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 bg-white rounded-3 shadow-sm border border-light card-hover">
+            <div class="card-body p-4">
+              <h3 class="fs-5 fw-bold text-primary mb-2">Вариант А</h3>
+              <p class="mb-0 lh-base text-body">Перейти по ссылке и ввести код из SMS.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 bg-white rounded-3 shadow-sm border border-light card-hover">
+            <div class="card-body p-4">
+              <h3 class="fs-5 fw-bold text-primary mb-2">Вариант Б</h3>
+              <p class="mb-0 lh-base text-body">Позвонить в банк по номеру с карты.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 bg-white rounded-3 shadow-sm border border-light card-hover">
+            <div class="card-body p-4">
+              <h3 class="fs-5 fw-bold text-primary mb-2">Вариант В</h3>
+              <p class="mb-0 lh-base text-body">Ответить на письмо и спросить детали.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="trainer-answer mt-4 mb-0 fw-semibold bg-light text-primary border-start border-4 border-primary ps-3 py-2 rounded-3">
+        Правильный ответ — Вариант Б. Банк никогда не просит код из SMS по ссылке.
+      </p>
+    </section>
+
+    <section class="news-section py-5 px-4 text-start">
+      <h2 class="fs-3 fw-bold text-primary mb-4">Новости и анонсы</h2>
+
+      <div class="row g-3">
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="news-item p-4 bg-white rounded-3 shadow-sm border border-light">
+            <div class="news-item__body mb-3">
+              <span class="news-date fs-6 fw-semibold text-primary">07.10.2026</span>
+              <h3 class="fs-5 fw-bold mb-2 text-primary">Новый вид фишинга в мессенджерах</h3>
+              <p class="mb-0 lh-base text-body">Злоумышленники рассылают ссылки от имени знакомых.</p>
+            </div>
+            <a href="https://certs.by" target="_blank" rel="noopener" class="news-item__link news-link-hover fw-semibold text-decoration-none text-white rounded-3">Подробнее</a>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="news-item p-4 bg-white rounded-3 shadow-sm border border-light">
+            <div class="news-item__body mb-3">
+              <span class="news-date fs-6 fw-semibold text-primary">05.10.2026</span>
+              <h3 class="fs-5 fw-bold mb-2 text-primary">Как защитить аккаунт</h3>
+              <p class="mb-0 lh-base text-body">Включите двухфакторную аутентификацию.</p>
+            </div>
+            <a href="https://nbrb.by" target="_blank" rel="noopener" class="news-item__link news-link-hover fw-semibold text-decoration-none text-white rounded-3">Подробнее</a>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="news-item p-4 bg-white rounded-3 shadow-sm border border-light">
+            <div class="news-item__body mb-3">
+              <span class="news-date fs-6 fw-semibold text-primary">28.09.2026</span>
+              <h3 class="fs-5 fw-bold mb-2 text-primary">Фишинг от имени банков</h3>
+              <p class="mb-0 lh-base text-body">Проверяйте адрес отправителя перед переходом по ссылке.</p>
+            </div>
+            <a href="https://mvd.gov.by" target="_blank" rel="noopener" class="news-item__link news-link-hover fw-semibold text-decoration-none text-white rounded-3">Подробнее</a>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer py-4 mt-5 bg-dark text-white">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4 class="fs-6 fw-bold mb-3 text-white">Навигация</h4>
+        <a href="section-1.html" class="footer-link text-white">Угрозы</a>
+        <a href="section-2.html" class="footer-link text-white">Признаки</a>
+        <a href="section-3.html" class="footer-link text-white">Действия</a>
+        <a href="index.html#trainer" class="footer-link text-white">Тренажёр</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="fs-6 fw-bold mb-3 text-white">Контакты</h4>
+        <p class="mb-1 text-white">Учебное заведение</p>
+        <p class="mb-1 text-white">г. Пинск, ул. Федотова, 36</p>
+        <p class="mb-1 text-white">info@example.by</p>
+        <p class="mb-0 text-white">+375 (17) 000-00-00</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="fs-6 fw-bold mb-3 text-white">Источники</h4>
+        <a href="https://pravo.by" target="_blank" rel="noopener" class="footer-link text-white">pravo.by</a>
+        <a href="https://nbrb.by" target="_blank" rel="noopener" class="footer-link text-white">nbrb.by</a>
+        <a href="https://mvd.gov.by" target="_blank" rel="noopener" class="footer-link text-white">mvd.gov.by</a>
+        <a href="https://certs.by" target="_blank" rel="noopener" class="footer-link text-white">certs.by</a>
+      </div>
+    </div>
+    <p class="footer-copy mt-4 mb-0 text-white">© Учебный проект «Портал безопасности»</p>
+  </footer>
+
+  <!-- ================= МОДАЛЬНОЕ ОКНО (СОБСТВЕННАЯ РЕАЛИЗАЦИЯ) ================= -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__window bg-white rounded-4 shadow" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+      <button type="button" class="modal__close" data-close aria-label="Закрыть">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <path d="M6 6 L18 18 M18 6 L6 18"
+                stroke="currentColor"
+                stroke-width="2.6"
+                stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <h2 id="modal-title" class="fs-4 fw-bold text-primary mb-3">Что такое фишинг</h2>
+      <p class="mb-3 lh-base text-body">
+        Фишинг — это обман, при котором злоумышленник под видом надёжной
+        организации выманивает у пользователя логины, пароли, коды из SMS
+        или данные банковских карт.
+      </p>
+      <p class="mb-0 lh-base text-body">
+        Главная защита — внимание. Проверяйте адрес отправителя и адрес сайта,
+        не переходите по ссылкам из писем, никогда не сообщайте коды из SMS
+        даже «сотруднику банка».
+      </p>
+    </div>
+  </div>
+
+  <!-- ==== КОНТЕЙНЕР ДЛЯ УВЕДОМЛЕНИЙ (Задание 6) ==== -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 2000;">
+    <div id="appToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="appToastText">Сообщение</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

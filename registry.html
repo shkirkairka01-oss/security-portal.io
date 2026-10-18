@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог записей — Портал безопасности</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/registry.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-circle">
+          <img src="assets/img/логотип.png" alt="Логотип" class="logo-img">
+        </span>
+        <span class="logo-text">Фишинг</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="main-nav">
+        <a href="section-1.html" class="nav-link">Угрозы</a>
+        <a href="section-2.html" class="nav-link">Признаки</a>
+        <a href="section-3.html" class="nav-link">Действия</a>
+        <a href="checklist.html" class="nav-link">Чек-лист</a>
+        <a href="registry.html" class="nav-link active">Каталог</a>
+        <a href="knowledge.html" class="nav-link">Проверка знаний</a>
+        <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+      </nav>
+    </div>
+    <span class="indicator"></span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Каталог записей и материалов</h1>
+      <p>База знаний по информационной безопасности, фишингу и методам защиты.</p>
+    </div>
+  </section>
+
+  <div class="container my-4">
+
+    <ol class="breadcrumbs">
+      <li><a href="index.html">Главная</a></li>
+      <li>Каталог записей</li>
+    </ol>
+
+    <div class="row g-4">
+
+      <!-- БОКОВАЯ НАВИГАЦИЯ -->
+      <aside class="col-12 col-lg-3">
+        <nav class="side-nav">
+          <h3 class="side-nav__title">Навигация по разделам</h3>
+          <ul class="side-nav__list">
+            <li class="side-nav__item">
+              <a href="section-1.html" class="side-nav__link">Раздел 1. Угрозы</a>
+            </li>
+            <li class="side-nav__item">
+              <a href="section-2.html" class="side-nav__link">Раздел 2. Признаки</a>
+            </li>
+            <li class="side-nav__item">
+              <a href="section-3.html" class="side-nav__link">Раздел 3. Действия</a>
+            </li>
+            <li class="side-nav__item">
+              <a href="checklist.html" class="side-nav__link">Чек-лист</a>
+            </li>
+            <li class="side-nav__item">
+              <a href="registry.html" class="side-nav__link active">Каталог</a>
+            </li>
+            <li class="side-nav__item">
+              <a href="knowledge.html" class="side-nav__link">Проверка знаний</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ОСНОВНОЙ КОНТЕНТ -->
+      <main class="col-12 col-lg-9">
+
+        <!-- Блок статистики -->
+        <div id="registry-stats" class="mb-4 p-3 rounded" style="background: #ffffff; box-shadow: 0 10px 30px rgba(30, 60, 114, 0.08);">
+          <h3 style="color: #1e3c72; margin-bottom: 15px; font-size: 18px;">Статистика каталога</h3>
+          <div id="stats-loading" style="color: #64748b; font-style: italic;">Инициализация подсчёта...</div>
+
+          <div id="stats-content" style="display: none;">
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <h4 style="font-size: 14px; color: #475569; margin-bottom: 10px;">По разделам:</h4>
+                <div id="stats-sections" class="histogram-container"></div>
+              </div>
+              <div class="col-12 col-md-6">
+                <h4 style="font-size: 14px; color: #475569; margin-bottom: 10px;">По категориям:</h4>
+                <div id="stats-categories" class="histogram-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Панель фильтров -->
+        <div class="row g-3 mb-4 align-items-end">
+
+          <!-- Поиск -->
+          <div class="col-12 col-md-4">
+            <label for="registry-search" class="form-label fw-semibold">Поиск</label>
+            <input type="search"
+                   id="registry-search"
+                   class="form-control"
+                   placeholder="Поиск по наименованию...">
+          </div>
+
+          <!-- Раздел -->
+          <div class="col-12 col-md-3">
+            <label for="registry-section-filter" class="form-label fw-semibold">Раздел</label>
+            <select id="registry-section-filter" class="form-select">
+              <option value="all">Все разделы</option>
+              <option value="Угрозы">Раздел 1. Угрозы</option>
+              <option value="Признаки">Раздел 2. Признаки</option>
+              <option value="Действия">Раздел 3. Действия</option>
+            </select>
+          </div>
+
+          <!-- Сортировка -->
+          <div class="col-12 col-md-3">
+            <label for="registry-sort" class="form-label fw-semibold">Сортировка</label>
+            <select id="registry-sort" class="form-select">
+              <option value="default">Сортировка...</option>
+              <option value="name-asc">По наименованию (А-Я)</option>
+              <option value="name-desc">По наименованию (Я-А)</option>
+              <option value="date-desc">Сначала новые дата</option>
+              <option value="date-asc">Сначала старые дата</option>
+            </select>
+          </div>
+
+          <!-- Переключатель «показывать только несоответствия» -->
+          <div class="col-12 col-md-2">
+            <div class="form-check form-switch mt-md-4">
+              <input class="form-check-input"
+                     type="checkbox"
+                     role="switch"
+                     id="registry-only-mismatch"
+                     aria-describedby="registry-only-mismatch-help">
+              <label class="form-check-label fw-semibold" for="registry-only-mismatch">
+                Только несоответствия
+              </label>
+              <div id="registry-only-mismatch-help" class="form-text">
+                Показать записи без отметки «Соответствует».
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Количество записей -->
+        <div id="registry-count" class="mb-3" style="font-weight: 500; color: #475569;">
+          Найдено записей: <span id="count-value">0</span>
+        </div>
+
+        <!-- Таблица -->
+        <div class="table-responsive table-wrap">
+          <table class="table table-striped table-hover align-middle mb-0" id="registry-table">
+            <thead>
+              <tr>
+                <th>№</th>
+                <th>Наименование</th>
+                <th>Категория</th>
+                <th>Дата</th>
+                <th>Раздел</th>
+                <th>Аннотация</th>
+              </tr>
+            </thead>
+            <tbody id="registry-tbody">
+              <!-- Данные подгружаются через AJAX -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Состояние «Ничего не найдено» -->
+        <div id="registry-empty" class="text-center py-5" style="display: none; color: #64748b;">
+          Ничего не найдено по вашему запросу. Попробуйте изменить параметры поиска.
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <a href="index.html">Главная</a>
+        <a href="section-1.html">Угрозы</a>
+        <a href="section-2.html">Признаки</a>
+        <a href="section-3.html">Действия</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <p>Учебное заведение</p>
+        <p>г. Пинск, ул. Федотова, 36</p>
+      </div>
+      <div class="footer-col">
+        <h4>Источники</h4>
+        <a href="https://certs.by" target="_blank" rel="noopener">certs.by</a>
+        <a href="https://nbrb.by" target="_blank" rel="noopener">nbrb.by</a>
+      </div>
+    </div>
+    <p class="footer-copy">© Учебный проект «Портал безопасности»</p>
+  </footer>
+
+  <!-- ==== КОНТЕЙНЕР ДЛЯ УВЕДОМЛЕНИЙ (Задание 6) ==== -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 2000;">
+    <div id="appToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="appToastText">Сообщение</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Раздел 2. Признаки — Портал безопасности</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-circle">
+          <img src="assets/img/логотип.png" alt="Логотип" class="logo-img">
+        </span>
+        <span class="logo-text">Фишинг</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="main-nav">
+        <a href="section-1.html" class="nav-link">Угрозы</a>
+        <a href="section-2.html" class="nav-link active">Признаки</a>
+        <a href="section-3.html" class="nav-link">Действия</a>
+        <a href="checklist.html" class="nav-link">Чек-лист</a>
+        <a href="registry.html" class="nav-link">Каталог</a>
+        <a href="knowledge.html" class="nav-link">Проверка знаний</a>
+        <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+      </nav>
+    </div>
+    <span class="indicator"></span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Признаки фишинга</h1>
+      <p>Как отличить поддельное письмо, сайт или звонок от настоящего — до того, как вы отдадите свои данные.</p>
+    </div>
+  </section>
+
+  <div class="container my-4">
+
+    <ol class="breadcrumbs">
+      <li><a href="index.html">Главная</a></li>
+      <li>Раздел 2. Признаки</li>
+    </ol>
+
+    <div class="row g-4">
+
+      <!-- БОКОВАЯ НАВИГАЦИЯ -->
+      <aside class="col-12 col-lg-3">
+        <nav class="side-nav">
+          <h3 class="side-nav__title">Навигация по разделам</h3>
+          <ul class="side-nav__list">
+            <li class="side-nav__item">
+              <a href="section-1.html" class="side-nav__link">Раздел 1. Угрозы</a>
+            </li>
+            <li class="side-nav__item has-sub">
+              <a href="section-2.html" class="side-nav__link active">Раздел 2. Признаки</a>
+              <ul class="sub-nav__list">
+                <li><a href="#t2-1" class="sub-nav__link">2.1. Письмо</a></li>
+                <li><a href="#t2-2" class="sub-nav__link">2.2. Сайт</a></li>
+                <li><a href="#t2-3" class="sub-nav__link">2.3. Звонок</a></li>
+              </ul>
+            </li>
+            <li class="side-nav__item">
+              <a href="section-3.html" class="side-nav__link">Раздел 3. Действия</a>
+            </li>
+            <li class="side-nav__item">
+              <a href="checklist.html" class="side-nav__link">Чек-лист</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ОСНОВНОЙ КОНТЕНТ -->
+      <main class="col-12 col-lg-9">
+
+        <section id="t2-1" class="mb-5">
+          <h2>2.1. Признаки фишингового письма</h2>
+          <p>
+            Письмо — самый частый канал атаки. Мошенники подделывают
+            оформление банков, госуслуг и магазинов.
+          </p>
+          <ul>
+            <li><strong>Адрес отправителя.</strong> Не совпадает с официальным доменом.</li>
+            <li><strong>Ссылка.</strong> При наведении видно чужой адрес.</li>
+            <li><strong>Срочность.</strong> «Ваш аккаунт заблокируют через 24 часа».</li>
+            <li><strong>Ошибки.</strong> Опечатки и странные формулировки.</li>
+            <li><strong>Вложения.</strong> Файлы .exe, .scr, .js, архивы с паролем.</li>
+            <li><strong>Обращение.</strong> «Уважаемый клиент» вместо имени.</li>
+          </ul>
+        </section>
+
+        <section id="t2-2" class="mb-5">
+          <h2>2.2. Признаки поддельного сайта</h2>
+          <p>Проверьте адресную строку и внешний вид страницы.</p>
+          <ul>
+            <li><strong>Адрес.</strong> Отличается одной буквой, дефисом или цифрой.</li>
+            <li><strong>HTTPS.</strong> Нет замка или сертификат от неизвестной организации.</li>
+            <li><strong>Дизайн.</strong> Логотип размытый, шрифты не совпадают.</li>
+            <li><strong>Формы.</strong> Просят сразу ввести пароль, код из SMS, CVV.</li>
+            <li><strong>Ссылки.</strong> Ведут на чужие сайты или не работают.</li>
+            <li><strong>Предупреждения.</strong> Браузер пишет о небезопасном соединении.</li>
+          </ul>
+        </section>
+
+        <section id="t2-3" class="mb-5">
+          <h2>2.3. Признаки мошеннического звонка</h2>
+          <p>Вишинг — самый опасный вид атаки.</p>
+          <ul>
+            <li><strong>Незнакомый номер.</strong> Не совпадает с официальным.</li>
+            <li><strong>Срочность.</strong> «Прямо сейчас происходит операция».</li>
+            <li><strong>Просьба кода.</strong> Просят код из SMS или CVV.</li>
+            <li><strong>Запрет класть трубку.</strong> «Не отключайтесь».</li>
+            <li><strong>Перевод на «безопасный счёт».</strong> Схема мошенников.</li>
+            <li><strong>Фоновый шум.</strong> Слышны другие «операторы».</li>
+          </ul>
+        </section>
+
+        <!-- ПОРЯДОК ДЕЙСТВИЙ: 2 колонки на широком, 1 на узком -->
+        <section class="mb-5">
+          <h2>Порядок проверки подозрительного письма</h2>
+
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Шаг 1</h5>
+                  <p class="card-text">Посмотрите на адрес отправителя. Совпадает ли он с официальным?</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Шаг 2</h5>
+                  <p class="card-text">Наведите курсор на ссылку — проверьте адрес внизу браузера.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Шаг 3</h5>
+                  <p class="card-text">Проверьте текст на ошибки и странные формулировки.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Шаг 4</h5>
+                  <p class="card-text">Проверьте, не просят ли пароль, код из SMS или данные карты.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Шаг 5</h5>
+                  <p class="card-text">Проверьте вложения — есть ли среди них .exe, .scr, .js.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Шаг 6</h5>
+                  <p class="card-text">Если сомнения остались — позвоните в банк по официальному номеру.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ВРЕЗКА-ПРЕДУПРЕЖДЕНИЕ НА ВСЮ ШИРИНУ -->
+        <aside class="notice notice--warning mb-5">
+          <strong>Ключевое требование</strong>
+          Ни один банк не просит код из SMS, пароль или CVV-код
+          по телефону, в письме или в мессенджере. Если просят —
+          это мошенники.
+        </aside>
+
+        <!-- СПРАВОЧНЫЕ СВЕДЕНИЯ В ВИДЕ КАРТОЧЕК -->
+        <section class="mb-5">
+          <h2>Сводные сведения</h2>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Незнакомый адрес отправителя</h5>
+                  <p class="card-text">
+                    <strong>Назначение:</strong> проверить, кто написал.<br>
+                    <strong>Ограничение:</strong> адрес можно подделать.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Ссылка на чужой домен</h5>
+                  <p class="card-text">
+                    <strong>Назначение:</strong> проверить, куда ведёт.<br>
+                    <strong>Ограничение:</strong> может быть скрыта за текстом.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Срочность в тексте</h5>
+                  <p class="card-text">
+                    <strong>Назначение:</strong> понять, что давят на страх.<br>
+                    <strong>Ограничение:</strong> не всегда присутствует.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Ошибки в письме</h5>
+                  <p class="card-text">
+                    <strong>Назначение:</strong> заподозрить подделку.<br>
+                    <strong>Ограничение:</strong> у качественных подделок их нет.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Просьба кода из SMS</h5>
+                  <p class="card-text">
+                    <strong>Назначение:</strong> явный признак мошенничества.<br>
+                    <strong>Ограничение:</strong> банк так не делает никогда.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Нет HTTPS на сайте</h5>
+                  <p class="card-text">
+                    <strong>Назначение:</strong> проверить безопасность.<br>
+                    <strong>Ограничение:</strong> HTTPS есть и у мошенников.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <a href="index.html">Главная</a>
+        <a href="section-1.html">Угрозы</a>
+        <a href="section-2.html">Признаки</a>
+        <a href="section-3.html">Действия</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <p>Учебное заведение</p>
+        <p>г. Пинск, ул. Федотова, 36</p>
+      </div>
+      <div class="footer-col">
+        <h4>Источники</h4>
+        <a href="https://certs.by" target="_blank" rel="noopener">certs.by</a>
+        <a href="https://nbrb.by" target="_blank" rel="noopener">nbrb.by</a>
+      </div>
+    </div>
+    <p class="footer-copy">© Учебный проект «Портал безопасности»</p>
+  </footer>
+
+</body>
+</html>
