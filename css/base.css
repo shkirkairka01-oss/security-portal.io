@@ -1,0 +1,1411 @@
+:root {
+  --color-primary: #1e3c72;
+  --color-accent: #6a11cb;
+  --color-bg: #f4f6fb;
+  --color-text: #1b2333;
+  --color-card: #ffffff;
+  --color-header: linear-gradient(135deg, #1e3c72, #6a11cb);
+}
+/* ============================================================
+   ПЕРЕОПРЕДЕЛЕНИЕ ПЕРЕМЕННЫХ BOOTSTRAP ПОД ПАЛИТРУ ПРОЕКТА
+   ============================================================ */
+
+:root {
+  /* Основные цвета */
+  --bs-primary: #1e3c72;
+  --bs-primary-rgb: 30, 60, 114;
+  --bs-secondary: #6a11cb;
+  --bs-secondary-rgb: 106, 17, 203;
+
+  /* Фон и текст */
+  --bs-body-bg: #f4f6fb;
+  --bs-body-color: #1b2333;
+  --bs-body-font-family: Arial, sans-serif;
+  --bs-body-font-size: 16px;
+  --bs-body-line-height: 1.6;
+
+  /* Радиусы скругления */
+  --bs-border-radius: 10px;
+  --bs-border-radius-lg: 14px;
+  --bs-border-radius-sm: 6px;
+
+  /* Ссылки */
+  --bs-link-color: #1e3c72;
+  --bs-link-hover-color: #6a11cb;
+
+  /* Тени */
+  --bs-box-shadow: 0 5px 15px rgba(30, 60, 114, 0.15);
+  --bs-box-shadow-sm: 0 3px 10px rgba(30, 60, 114, 0.10);
+  --bs-box-shadow-lg: 0 10px 30px rgba(30, 60, 114, 0.20);
+}
+[data-theme="dark"] {
+  --color-primary: #7aa2ff;
+  --color-accent: #b47aff;
+  --color-bg: #12151f;
+  --color-text: #f1f5f9;
+  --color-card: #1c2130;
+  --color-header: linear-gradient(135deg, #0d1930, #3a0d6e);
+
+  /* Bootstrap для тёмной темы */
+  --bs-primary: #7aa2ff;
+  --bs-primary-rgb: 122, 162, 255;
+  --bs-secondary: #b47aff;
+  --bs-secondary-rgb: 180, 122, 255;
+  --bs-body-bg: #12151f;
+  --bs-body-color: #e8eefc;
+  --bs-link-color: #93c5fd;
+  --bs-link-hover-color: #c4b5fd;
+  --bs-border-color: #2a3550;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+a {
+  color: #1e3c72;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.header {
+  position: relative;
+  background: var(--color-header);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.header nav a {
+  color: white;
+  margin: 0 8px;
+  font-weight: bold;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+}
+
+
+
+.section {
+  max-width: 100%;
+}
+
+
+.cards-wrap {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 0;
+  background: var(--color-card);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(30, 60, 114, 0.2);
+}
+
+.card h3 {
+  color: #1e3c72;
+  margin-bottom: 6px;
+}
+
+.card-radial {
+  background: radial-gradient(circle at 30% 20%, #ffffff, #cfd9ff, #1e3c72);
+  color: #1b2333;
+}
+
+.trainer-answer {
+  margin-top: 15px;
+  padding: 12px 16px;
+  background: #e8eefc;
+  border-left: 4px solid #1e3c72;
+  border-radius: 6px;
+  color: #1b2333;
+  font-weight: 500;
+}
+
+.buttons {
+  margin-top: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.btn-main {
+  background: #1e3c72;
+  color: white;
+  box-shadow: 0 4px 12px rgba(30, 60, 114, 0.3);
+}
+
+.btn-main:hover {
+  background: #6a11cb;
+  box-shadow: 0 6px 16px rgba(106, 17, 203, 0.4);
+}
+
+.btn-light {
+  background: white;
+  color: #1e3c72;
+  border: 2px solid #1e3c72;
+}
+
+.btn-light:hover {
+  background: #1e3c72;
+  color: white;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1600px;
+  margin: 0;
+}
+
+.hero {
+  background: linear-gradient(135deg, #16294d, #3a0d6e);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: hero-fade 1s both;
+}
+
+.hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+@keyframes hero-fade {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.note {
+  margin-top: 20px;
+  padding: 15px 20px;
+  background: #e8eefc;
+  border-left: 4px solid #1e3c72;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.note strong {
+  color: #1e3c72;
+}
+
+.note a {
+  color: #6a11cb;
+  text-decoration: underline;
+}
+
+.note a:hover {
+  color: #1e3c72;
+}
+
+.news-section {
+  width: 100%;
+  padding: 30px 0;
+  text-align: left;
+}
+
+.news-section h2 {
+  text-align: left;
+  color: #1e3c72;
+  margin-bottom: 20px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 22px 26px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(30, 60, 114, 0.10);
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.news-item:hover {
+  box-shadow: 0 12px 30px rgba(30, 60, 114, 0.18);
+  transform: translateY(-3px);
+}
+
+.news-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.news-date {
+  color: #6a11cb;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.news-item h3 {
+  margin: 0;
+  font-size: 19px;
+  color: #1e3c72;
+  line-height: 1.3;
+}
+
+.news-item p {
+  margin: 0;
+  color: #3b4a63;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.news-item__link {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 18px;
+  align-self: flex-start;
+  background: linear-gradient(135deg, #1e3c72, #6a11cb);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: box-shadow 0.3s, transform 0.15s;
+}
+
+.news-item__link:hover {
+  box-shadow: 0 6px 16px rgba(106, 17, 203, 0.4);
+  transform: translateY(-1px);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ФУТЕР — ЦЕНТРИРОВАННЫЙ КАК НА СКРИНШОТЕ */
+.footer {
+  margin-top: 30px;
+  padding: 30px 40px 15px;
+  background: #1b2333;
+  color: white;
+  font-size: 14px;
+  width: 100%;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-col {
+  text-align: center;
+}
+
+.footer-col h4 {
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+}
+
+.footer-col a {
+  display: block;
+  color: #cfd9ff;
+  margin-bottom: 6px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-col p {
+  margin-bottom: 6px;
+  color: #cfd9ff;
+  text-align: center;
+}
+
+.footer-copy {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  color: #cfd9ff;
+}
+
+
+
+/* СТИЛИ ДЛЯ ВЛОЖЕННЫХ ПОДРАЗДЕЛОВ В БОКОВОМ МЕНЮ */
+.sub-nav__list {
+  list-style: none;
+  padding-left: 16px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 2px solid #eef2fb;
+}
+
+.sub-nav__link {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #6b7a99;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sub-nav__link:hover {
+  color: #1e3c72;
+  background: #f4f7fe;
+}
+
+.sub-nav__link.active-sub,
+.sub-nav__link:focus {
+  color: #1a56db;
+  font-weight: 600;
+  background: #edf3ff;
+  outline: none;
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  flex-shrink: 0;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* ============================================================
+   УЛУЧШЕННАЯ ТЁМНАЯ ТЕМА (ЧИТАЕМОСТЬ И КОНТРАСТ)
+   ============================================================ */
+/* ============================================================
+   ИСПРАВЛЕНИЕ ТАБЛИЦ ДЛЯ ТЁМНОЙ ТЕМЫ
+   ============================================================ */
+
+/* Убираем белый фон у контейнера таблицы и самой таблицы */
+[data-theme="dark"] .table-wrap,
+[data-theme="dark"] .data-table {
+  background: #1c2130 !important; /* Тёмный фон вместо белого */
+  color: #f1f5f9 !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Фон и текст ячеек таблицы */
+[data-theme="dark"] .data-table td {
+  background: #1c2130 !important;
+  color: #e2e8f0 !important; /* Чёткий светлый текст */
+  border-bottom: 1px solid #2a3550 !important;
+}
+
+/* Чередование цветов строк (четные строки чуть темнее) */
+[data-theme="dark"] .data-table tbody tr:nth-child(even) td {
+  background: #161b28 !important;
+}
+
+/* Подсветка строки при наведении */
+[data-theme="dark"] .data-table tbody tr:hover td {
+  background: #252e42 !important;
+}
+
+/* Заголовок таблицы (шапка) */
+[data-theme="dark"] .data-table thead th {
+  background: linear-gradient(135deg, #1e3a8a, #581c87) !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid #3b82f6 !important;
+}
+
+/* Название таблицы (подпись caption) */
+[data-theme="dark"] .data-table caption {
+  color: #93c5fd !important;
+}
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] .section h2,
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .subsection-title,
+[data-theme="dark"] .modal__window h2,
+[data-theme="dark"] .data-table caption,
+[data-theme="dark"] .side-nav__title {
+  color: #93c5fd !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .card p,
+[data-theme="dark"] .section p,
+[data-theme="dark"] li,
+[data-theme="dark"] span,
+[data-theme="dark"] label {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .card {
+  background: #1e2538;
+  color: #f1f5f9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .card-radial {
+  background: radial-gradient(circle at 30% 20%, #2a3a5c, #1c2130, #0d1930);
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .card-radial h3 {
+  color: #c4b5fd !important;
+}
+
+[data-theme="dark"] .breadcrumbs {
+  background: #1c2130 !important;
+  color: #94a3b8;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .breadcrumbs a {
+  color: #93c5fd !important;
+}
+
+[data-theme="dark"] .breadcrumbs li:last-child {
+  color: #c4b5fd !important;
+}
+
+[data-theme="dark"] .trainer-answer {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  border-left-color: #60a5fa !important;
+}
+
+[data-theme="dark"] .sub-nav__list {
+  border-left-color: #2a3550;
+}
+
+[data-theme="dark"] .sub-nav__link {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .sub-nav__link:hover {
+  background: #232b3d;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .sub-nav__link.active-sub,
+[data-theme="dark"] .sub-nav__link:focus {
+  color: #93c5fd;
+  background: #1e293b;
+}
+/* Исправление блоков уведомлений и алгоритмов в темной теме */
+[data-theme="dark"] .notice,
+[data-theme="dark"] .notice--order,
+[data-theme="dark"] .notice--warning {
+  background: #1e2538 !important;
+  color: #f1f5f9 !important;
+  border-left-color: #60a5fa !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .notice strong,
+[data-theme="dark"] .notice--order strong,
+[data-theme="dark"] .notice--warning strong {
+  color: #93c5fd !important;
+}
+
+[data-theme="dark"] .notice li,
+[data-theme="dark"] .notice--order li,
+[data-theme="dark"] .notice--warning li,
+[data-theme="dark"] .notice p,
+[data-theme="dark"] .notice--order p {
+  color: #e2e8f0 !important;
+}
+/* ============================================================
+   ИСПРАВЛЕНИЯ ДЛЯ ЧЕК-ЛИСТА В ТЁМНОЙ ТЕМЕ
+   ============================================================ */
+
+/* Карточки вопросов чек-листа в тёмной теме */
+[data-theme="dark"] .checklist-item {
+  background: #1c2130 !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .checklist-question {
+  color: #93c5fd !important;
+}
+
+[data-theme="dark"] .checklist-options label {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .checklist-comment {
+  background: #12151f !important;
+  color: #f1f5f9 !important;
+  border-color: #2a3550 !important;
+}
+
+/* Блок результатов по умолчанию в темной теме */
+[data-theme="dark"] .checklist-result {
+  background: #1c2130 !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #2a3550;
+}
+
+/* Выделение при ошибке / несоответствии вопроса */
+[data-theme="dark"] .checklist-item.is-fail {
+  border-left: 4px solid #f87171 !important;
+  background: #2a1b1b !important;
+}
+
+
+/* ============================================================
+   КРАСИВАЯ ЦВЕТОВАЯ ИНДИКАЦИЯ РЕЗУЛЬТАТОВ (СВЕТЛАЯ И ТЁМНАЯ ТЕМЫ)
+   ============================================================ */
+
+/* Высокий уровень (>= 80%) — зелёный */
+.checklist-result.result-high {
+  background-color: #e6f4ea !important;
+  color: #137333 !important;
+  border: 1px solid #ceead6;
+}
+[data-theme="dark"] .checklist-result.result-high {
+  background-color: #0f291e !important;
+  color: #34d399 !important;
+  border-color: #166534 !important;
+}
+
+/* Удовлетворительный уровень (50% - 79%) — жёлтый */
+.checklist-result.result-mid {
+  background-color: #fef7e0 !important;
+  color: #b06000 !important;
+  border-color: #fef1c7;
+}
+[data-theme="dark"] .checklist-result.result-mid {
+  background-color: #2e260e !important;
+  color: #fbbf24 !important;
+  border-color: #78350f !important;
+}
+
+/* Низкий уровень (< 50%) — бледно-розовый фон и тёмно-красный текст */
+.checklist-result.result-low {
+  background-color: #fde8e8 !important;
+  color: #991b1b !important;
+  border: 1px solid #fbd5d5;
+}
+[data-theme="dark"] .checklist-result.result-low {
+  background-color: #3f1515 !important;
+  color: #f87171 !important;
+  border-color: #991b1b !important;
+}
+/* ============================================================
+   ИСПРАВЛЕНИЕ НОВОСТНЫХ БЛОКОВ В ТЁМНОЙ ТЕМЕ
+   ============================================================ */
+[data-theme="dark"] .news-item {
+  background: #1c2130 !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .news-item a {
+  color: #60a5fa !important;
+}
+
+[data-theme="dark"] .news-item a:hover {
+  color: #93c5fd !important;
+}
+
+[data-theme="dark"] .news-item p,
+[data-theme="dark"] .news-item span,
+[data-theme="dark"] .news-item small {
+  color: #cbd5e1 !important;
+}
+/* ============================================================
+   АДАПТАЦИЯ КАТАЛОГА ДЛЯ ТЁМНОЙ ТЕМЫ
+   ============================================================ */
+
+/* Поля ввода и селекты в каталоге */
+[data-theme="dark"] #registry-search,
+[data-theme="dark"] #registry-section-filter,
+[data-theme="dark"] #registry-sort {
+  background-color: #1c2130 !important;
+  color: #f1f5f9 !important;
+  border-color: #2a3550 !important;
+}
+
+[data-theme="dark"] #registry-search::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Счетчик записей и блок «ничего не найдено» */
+[data-theme="dark"] #registry-count {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] #registry-empty {
+  color: #94a3b8 !important;
+}
+
+/* Таблица каталога в темной теме */
+[data-theme="dark"] #registry-table {
+  background-color: #1c2130 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #registry-table th {
+  background-color: #151922 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #registry-table td {
+  background-color: #1c2130 !important;
+  color: #e2e8f0 !important;
+  border-bottom: 1px solid #2a3550 !important;
+}
+/* Жёсткий глобальный фон для тёмной темы во всём проекте */
+[data-theme="dark"],
+[data-theme="dark"] body {
+  background-color: #12151f !important;
+  color: #f1f5f9 !important;
+}
+/* Жесткий запрет на переворачивание и искажение элементов */
+.card, .btn, input, button {
+    transform: none !important;
+    perspective: none !important;
+}
+
+.card:hover, .btn:hover {
+    transform: none !important;
+}
+[data-theme="dark"] .knowledge-form-card {
+  background: #1c2130;
+  color: #e8eefc;
+}
+
+[data-theme="dark"] .section-title {
+  color: #a5b4fc;
+}
+
+[data-theme="dark"] .form-control {
+  background: #232b3d;
+  color: #e8eefc;
+  border-color: #2a3550;
+}
+
+[data-theme="dark"] .form-group label {
+  color: #a5b4fc;
+}
+
+[data-theme="dark"] .quiz-question {
+  border-bottom-color: #2a3550;
+  color: #e8eefc;
+}
+
+[data-theme="dark"] .sortable-item {
+  background: #232b3d;
+  color: #e8eefc;
+  border-color: #2a3550;
+}
+
+[data-theme="dark"] .progress-row {
+  color: #a5b4fc;
+}
+/* ===== Диалоговое окно в тёмной теме ===== */
+[data-theme="dark"] .ui-dialog {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .ui-dialog .ui-dialog-titlebar {
+  background: linear-gradient(135deg, #0d1930, #3a0d6e);
+}
+
+[data-theme="dark"] .ui-dialog .ui-dialog-content {
+  background: #1c2130;
+  color: #e8eefc;
+}
+
+[data-theme="dark"] .ui-dialog .ui-dialog-buttonpane {
+  background: #161b28;
+  border-top-color: #2a3550;
+}
+
+[data-theme="dark"] #dialog-content-text strong {
+  color: #a5b4fc;
+}
+
+[data-theme="dark"] .ui-widget-overlay {
+  background: rgba(0, 0, 0, 0.75);
+}
+/* ===== Общие правки тёмной темы ===== */
+
+/* Ссылки */
+[data-theme="dark"] a {
+  color: #93c5fd;
+}
+
+[data-theme="dark"] a:hover {
+  color: #c4b5fd;
+}
+
+/* Ссылки в футере */
+[data-theme="dark"] .footer {
+  background: #0a0e17;
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .footer-col a {
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .footer-col a:hover {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .footer-copy {
+  color: #94a3b8;
+  border-top-color: #2a3550;
+}
+
+/* Кнопки */
+[data-theme="dark"] .btn-light {
+  background: #1c2130;
+  color: #a5b4fc;
+  border-color: #a5b4fc;
+}
+
+[data-theme="dark"] .btn-light:hover {
+  background: #a5b4fc;
+  color: #12151f;
+}
+
+/* Тема-toggle остаётся светлым на тёмной шапке — это ок */
+
+/* Инпуты, textarea */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: #232b3d;
+  color: #e8eefc;
+  border-color: #2a3550;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #6b7a99;
+}
+
+/* Таблица jQuery UI — datepicker */
+[data-theme="dark"] .ui-datepicker {
+  background: #1c2130;
+  border-color: #2a3550;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .ui-datepicker .ui-datepicker-header {
+  background: linear-gradient(135deg, #0d1930, #3a0d6e);
+  color: #ffffff;
+  border-color: #2a3550;
+}
+
+[data-theme="dark"] .ui-datepicker-calendar th,
+[data-theme="dark"] .ui-datepicker-calendar td {
+  color: #e8eefc;
+}
+
+[data-theme="dark"] .ui-datepicker-calendar .ui-state-default {
+  background: #232b3d;
+  color: #e8eefc;
+  border-color: #2a3550;
+}
+
+[data-theme="dark"] .ui-datepicker-calendar .ui-state-hover {
+  background: #2a3550;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .ui-datepicker-calendar .ui-state-active {
+  background: linear-gradient(135deg, #1e3c72, #6a11cb);
+  color: #ffffff;
+  border-color: #1e3c72;
+}
+
+/* Прогрессбар */
+[data-theme="dark"] .ui-progressbar {
+  background: #2a3550 !important;
+}
+
+[data-theme="dark"] .ui-progressbar .ui-progressbar-value {
+  background: linear-gradient(135deg, #3b82f6, #9333ea) !important;
+}
+
+/* Слайдер */
+[data-theme="dark"] .ui-slider {
+  background: #2a3550 !important;
+}
+
+[data-theme="dark"] .ui-slider .ui-slider-range {
+  background: linear-gradient(135deg, #3b82f6, #9333ea) !important;
+}
+
+[data-theme="dark"] .ui-slider .ui-slider-handle {
+  background: #9333ea !important;
+  border-color: #3b82f6 !important;
+}
+
+/* Аккордеон */
+[data-theme="dark"] .ui-accordion .ui-accordion-header {
+  background: #232b3d;
+  color: #e8eefc;
+  border-color: #2a3550;
+}
+
+[data-theme="dark"] .ui-accordion .ui-accordion-header.ui-state-active {
+  background: linear-gradient(135deg, #1e3c72, #6a11cb);
+  color: #ffffff;
+  border-color: #1e3c72;
+}
+
+[data-theme="dark"] .ui-accordion .ui-accordion-content {
+  background: #1c2130;
+  color: #e8eefc;
+  border-color: #2a3550;
+}
+
+/* Форма регистрации */
+[data-theme="dark"] .knowledge-form-card {
+  background: #1c2130 !important;
+  color: #e8eefc !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .form-control {
+  background: #232b3d !important;
+  color: #e8eefc !important;
+  border-color: #2a3550 !important;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+  color: #6b7a99 !important;
+}
+
+[data-theme="dark"] .form-group label,
+[data-theme="dark"] .section-title {
+  color: #a5b4fc !important;
+}
+
+[data-theme="dark"] .section-desc {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .progress-row {
+  color: #a5b4fc !important;
+}
+
+[data-theme="dark"] .quiz-question {
+  color: #e8eefc;
+  border-bottom-color: #2a3550;
+}
+
+[data-theme="dark"] .quiz-question label {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .sortable-item {
+  background: #232b3d !important;
+  color: #e8eefc !important;
+  border-color: #2a3550 !important;
+}
+
+[data-theme="dark"] .sortable-item:hover {
+  background: #2a3550 !important;
+}
+
+[data-theme="dark"] .drag-handle {
+  color: #a5b4fc;
+}
+/* ===== Bootstrap в тёмной теме ===== */
+
+[data-theme="dark"] .card {
+  background: #1c2130;
+  color: #e8eefc;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+  background: #232b3d;
+  color: #e8eefc;
+  border-color: #2a3550;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+  color: #6b7a99;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+  border-color: #b47aff;
+  box-shadow: 0 0 0 3px rgba(180, 122, 255, 0.2);
+}
+
+[data-theme="dark"] .alert-info {
+  background: #232b3d;
+  color: #a5b4fc;
+}
+
+[data-theme="dark"] .table {
+  color: #e8eefc;
+}
+
+[data-theme="dark"] .table thead th {
+  color: #a5b4fc;
+  border-bottom-color: #2a3550;
+}
+
+[data-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd) > * {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .table-hover > tbody > tr:hover > * {
+  background: rgba(180, 122, 255, 0.08);
+}
+
+[data-theme="dark"] .page-link {
+  color: #93c5fd;
+  background: #232b3d;
+}
+
+[data-theme="dark"] .page-item.active .page-link {
+  background: linear-gradient(135deg, #1e3c72, #6a11cb);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .page-link:hover {
+  background: #2a3550;
+  color: #c4b5fd;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+  color: #93c5fd;
+  border-color: #93c5fd;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+  background: #93c5fd;
+  color: #12151f;
+}
+/* ===== Bootstrap-таблица в тёмной теме ===== */
+
+[data-theme="dark"] .table {
+  --bs-table-bg: #1c2130;
+  --bs-table-color: #e8eefc;
+  --bs-table-border-color: #2a3550;
+  --bs-table-striped-bg: #232b3d;
+  --bs-table-striped-color: #e8eefc;
+  --bs-table-hover-bg: #2a3550;
+  --bs-table-hover-color: #ffffff;
+  color: #e8eefc;
+  border-color: #2a3550;
+}
+
+[data-theme="dark"] .table > :not(caption) > * > * {
+  background-color: var(--bs-table-bg);
+  color: var(--bs-table-color);
+  border-bottom-color: var(--bs-table-border-color);
+}
+
+[data-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: #232b3d;
+  color: #e8eefc;
+}
+
+[data-theme="dark"] .table-hover > tbody > tr:hover > * {
+  background-color: #2a3550;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .table thead th {
+  background: linear-gradient(135deg, #1e3a8a, #581c87);
+  color: #ffffff;
+  border-bottom: 2px solid #3b82f6;
+}
+
+[data-theme="dark"] .table caption {
+  color: #93c5fd;
+  caption-side: top;
+}
+
+[data-theme="dark"] .table-responsive {
+  background: transparent;
+}
+/* ============================================================
+   СОСТОЯНИЯ: HOVER, FOCUS, ACTIVE
+   ============================================================ */
+
+/* Ссылки меню в шапке */
+.nav-link-hover {
+  transition: background 0.25s, color 0.25s;
+}
+
+.nav-link-hover:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-link-hover:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.nav-link-hover.active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Кнопка темы */
+.theme-toggle-hover {
+  transition: background 0.25s, transform 0.2s;
+}
+
+.theme-toggle-hover:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.theme-toggle-hover:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.theme-toggle-hover:active {
+  transform: scale(0.95);
+}
+
+/* Кнопки */
+.btn-hover {
+  transition: background 0.3s, box-shadow 0.3s, transform 0.15s;
+}
+
+.btn-hover:hover {
+  box-shadow: 0 6px 16px rgba(106, 17, 203, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-hover:focus-visible {
+  outline: 3px solid #6a11cb;
+  outline-offset: 2px;
+}
+
+.btn-hover:active {
+  transform: scale(0.97);
+}
+
+/* Ссылки в тексте */
+.link-hover {
+  transition: color 0.2s;
+}
+
+.link-hover:hover {
+  color: #6a11cb !important;
+  text-decoration: underline !important;
+}
+
+.link-hover:focus-visible {
+  outline: 3px solid #6a11cb;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Ссылки «Подробнее» в новостях */
+.news-link-hover {
+  transition: box-shadow 0.3s, transform 0.15s, background 0.3s;
+}
+
+.news-link-hover:hover {
+  box-shadow: 0 6px 16px rgba(106, 17, 203, 0.4);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.news-link-hover:focus-visible {
+  outline: 3px solid #6a11cb;
+  outline-offset: 2px;
+}
+
+.news-link-hover:active {
+  transform: scale(0.97);
+}
+
+/* Поля формы в фокусе */
+.form-control-hover:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.15);
+}
+
+/* Ссылки в подвале */
+.footer-link {
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #c4b5fd !important;
+  text-decoration: underline;
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid #c4b5fd;
+  outline-offset: 2px;
+}
+
+/* Карточки при наведении */
+.card-hover {
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.card-hover:hover {
+  box-shadow: 0 12px 30px rgba(30, 60, 114, 0.18);
+  transform: translateY(-3px);
+}
+
+/* Строки таблицы при наведении — Bootstrap table-hover */
+.table-hover > tbody > tr:hover > * {
+  background-color: rgba(106, 17, 203, 0.08);
+}
+[data-theme="dark"] .accordion-item {
+  background: #1c2130;
+  color: #e8eefc;
+  border-color: #2a3550;
+}
+
+[data-theme="dark"] .accordion-button {
+  background: #232b3d;
+  color: #e8eefc;
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+  background: linear-gradient(135deg, #1e3c72, #6a11cb);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .accordion-body {
+  background: #1c2130;
+  color: #e8eefc;
+}
+
+[data-theme="dark"] .form-check-label {
+  color: #e2e8f0;
+}
+/* ===== Боковая навигация в тёмной теме ===== */
+
+[data-theme="dark"] .side-nav {
+  background: #1c2130 !important;
+  border-color: #2a3550 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .side-nav__title {
+  color: #a5b4fc !important;
+  border-bottom-color: #2a3550 !important;
+}
+
+[data-theme="dark"] .side-nav__link {
+  color: #cbd5e1 !important;
+  background: transparent;
+}
+
+[data-theme="dark"] .side-nav__link:hover {
+  background: #232b3d !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .side-nav__link.active {
+  background: linear-gradient(135deg, #1e3c72, #6a11cb) !important;
+  color: #ffffff !important;
+  border-left-color: #7aa2ff !important;
+}
+
+/* Подразделы в боковой навигации */
+[data-theme="dark"] .sub-nav__list {
+  border-left-color: #2a3550 !important;
+}
+
+[data-theme="dark"] .sub-nav__link {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .sub-nav__link:hover {
+  background: #232b3d !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .sub-nav__link.active-sub,
+[data-theme="dark"] .sub-nav__link:focus {
+  background: #1e293b !important;
+  color: #93c5fd !important;
+}
+/* ============================================================
+   КРЕСТИК ЗАКРЫТИЯ МОДАЛЬНОГО ОКНА — В ФИРМЕННЫХ ЦВЕТАХ САЙТА
+   ============================================================ */
+
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+
+  /* Фирменный градиент сайта как фон кнопки */
+  background: linear-gradient(135deg, #1e3c72, #6a11cb);
+  color: #ffffff;
+
+  box-shadow: 0 4px 12px rgba(30, 60, 114, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.modal__close svg {
+  display: block;
+}
+
+/* При наведении — лёгкий поворот, усиление тени и инверсия градиента */
+.modal__close:hover {
+  background: linear-gradient(135deg, #6a11cb, #1e3c72);
+  box-shadow: 0 6px 18px rgba(106, 17, 203, 0.45);
+  transform: rotate(90deg) scale(1.05);
+}
+
+/* При нажатии — сжатие */
+.modal__close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* Видимый фокус для доступности */
+.modal__close:focus-visible {
+  outline: 3px solid #6a11cb;
+  outline-offset: 3px;
+}
+
+/* Тёмная тема — оставляем тот же фирменный градиент, 
+   он хорошо смотрится и на тёмном фоне, но фокус-кольцо делаем светлее */
+[data-theme="dark"] .modal__close {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .modal__close:focus-visible {
+  outline-color: #c4b5fd;
+}
